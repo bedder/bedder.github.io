@@ -1,0 +1,14 @@
+github:
+  username: bedder
+timezone: Europe/London
+email: mail@york.ac.uk
+mailto: mailto:mail@york.ac.uk
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "post"
+    values:
+      layout: "default"
+      author: "Matthew Bedder"

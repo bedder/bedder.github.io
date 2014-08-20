@@ -1,0 +1,37 @@
+		<header>
+			<div class="container">
+				<nav id="navbar">
+					<ul>
+						<li>
+							<a class="nav-logo" href="{{ site.baseurl }}/" data-hint="Logo">MB</a>
+						</li>
+						<li>
+							<a class="nav-button" href="{{ site.baseurl }}/" data-hint="Home" style="background-color:#CE1836">Home</a>
+						</li>
+						<li>
+							<a class="nav-button" href="{{ site.baseurl }}/about/" data-hint="About" style="background-color:#F85931">About</a>
+						</li>
+						<li>
+							<a class="nav-button" href="{{ site.baseurl }}/posts/" data-hint="Posts" style="background-color:#EDB92E">Posts</a>
+						</li>
+						<li>
+							<a class="nav-button" href="{{ site.baseurl }}/projects/" data-hint="Projects" style="background-color:#A3A948">Projects</a>
+						</li>
+						<li>
+							<a class="nav-button" href="{{ site.baseurl }}/demos/" data-hint="Demos" style="background-color:#009989">Demos</a>
+						</li>
+						<li>
+							<a class="nav-button" href="{{ site.baseurl }}/contact/" data-hint="Contact" style="background-color:#492D61">Contact</a>
+						</li>
+					</ul>
+				</nav>
+				<div id="outer">
+					<div id="inner">
+						<a class="title">
+							<h1>
+{% if page.customsitetitle %}
+								<a class="title" href="{{ site.baseurl }}/">{{ page.customsitetitle }}</a>
+{% else %}
+								<a class="title" href="{{ site.baseurl }}/">Hi, I'm Matthew Bedder.</a>
+{% endif %}
+		</header>

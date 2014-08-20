@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+{% if page.title %}
+{{ page.title }} - Matthew Bedder
+{% else %}
+Matthew Bedder
+{% endif %}
+		</title>
+{% include meta.html %}
+{% include scripts.html %}
+	</head>
+	<body>
+{% include header.html %}
+		<main>
+			<div id="outer">
+				<div id="inner">
+{% if page.title %}
+				<h2>{{ page.title }}</h2>
+{% endif %}
+				</div>
+			</div>
+			<div id="wide-container">
+{{ content }}
+			</div>
+		</main>	
+	</body>
+{% include footer.html %}
+</html>
