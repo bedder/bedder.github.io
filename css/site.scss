@@ -72,6 +72,12 @@ h2 {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 720px) {
+  .layout-outer {
+    width: 100%;
+  }
+}
+
 .layout-inner {
   padding: 0 10pt 0 10pt;
 }

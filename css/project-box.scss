@@ -18,8 +18,10 @@ $footer-indigo: #492D61;
   width: $project-view-width;
 
   [type=checkbox] {
-    height: 0;
-    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
 
   img {
@@ -36,6 +38,44 @@ $footer-indigo: #492D61;
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .project-box {
+    height: 300px;
+    width: 300px;
+
+    img {
+      height: 300px;
+      width: 300px;
+    }
+  }  
+}
+
+
+@media only screen and (max-width: 350px) {
+  .project-box {
+    height: 250px;
+    width: 250px;
+
+    img {
+      height: 250px;
+      width: 250px;
+    }
+  }  
+}
+
+@media only screen and (max-width: 300px) {
+  .project-box {
+    height: 200px;
+    width: 200px;
+
+    img {
+      height: 200px;
+      width: 200px;
+    }
+  }  
+}
+
+
 .project-background {
   position: absolute;  
   top: 0;
@@ -45,7 +85,7 @@ $footer-indigo: #492D61;
   background-color: green;
   
   opacity: 0;
-  transition: 1s;
+  transition: opacity 1s ease-in-out;
 }
 
 .project-info {
@@ -57,7 +97,7 @@ $footer-indigo: #492D61;
   
   opacity: 0;
   transform: translateY(100px);
-  transition: 1s;
+  transition: opacity 1s, transform 1s ease-in-out;
 }
 
 .project-link {
@@ -66,16 +106,16 @@ $footer-indigo: #492D61;
   left: 0;
   width: 100%;
   text-align: center;
-  
+
   opacity: 0;
   transform: translateY(20px);
-  transition: 0.2s;
+  transition: opacity 1s, transform 1s, ease-in-out;
 }
 
 .project-box [type=checkbox]:checked ~ .project-background{
   opacity: 0.9;
 }
-
+ 
 .project-box [type=checkbox]:checked ~ .project-info{
   opacity: 0.9;
   transform: translateY(0px);
@@ -85,3 +125,4 @@ $footer-indigo: #492D61;
   opacity: 0.9;
   transform: translateY(0px);
 }
+
