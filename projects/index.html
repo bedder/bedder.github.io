@@ -9,42 +9,51 @@ title: Personal projects
   </div>
 </div>
 
-<div class="container" id="projects" style="text-align: center">
-	<a href="{{ site.basedir }}/projects/fishtracker/">
-	  <div class="project-box">
-		  <img src="{{ site.basedir }}/resources/zebrafish.jpeg" />
-		  <div class="mask">
-     	         <div id="dummy"></div>
-			  <h3>Fishtracker</h3>
-			  <div class="project-info">
-				  <p>An application to detect motor symptoms of Parkinson's Disease in Zebrafish to better understand the impact of Parkinson's on movement, and with potential application in assisting with testing for Parkinson's treatments.</p>
+<div class="container" id="projects" style="text-align:center;">
+  <div class="project-box"> <!-- START Fishtracker !-->
+    <img src="{{ site.baseurl }}/resources/zebrafish.jpeg"/>
+    <input type="checkbox" id="fishtracker-show" />
+    <div class="project-background" style="background-color:red"></div>
+    <div class="project-info">
+      <h3>Fishtracker</h3>
+      <p>An application to detect the motor symptoms of Parkinson's Disearch in Zebrafish. This was developed with the intention of gaining better understanding of the impact of Parkinson's on the motor systems of animals, and to assist with the testing of treatments for Parkinson's.</p>
+    </div>
+    <label for="fishtracker-show">
+        <div class="project-show"></div>
+    </label>
+    <div class="project-link">
+        <a href="{{ site.baseurl }}/projects/fishtracker/">Read more...</a>
+    </div>
+  </div> <!-- END Fishtracker" !-->
 
-			  </div>
-		  </div>
-	  </div>
-  </a>
-  <a href="{{ site.basedir }}/projects/thesis/">
-	  <div class="project-box">
-		  <img src="{{ site.basedir }}/resources/hmcts-00.jpeg" />
-		  <div class="mask">
-			  <h3>PhD Thesis - Hierarchical MCTS</h3>
-			  <div class="project-info">
-				  <p>Investigating the effect of using abstracted game states to augment MCTS selection policies.</p>
-			  </div>
-		  </div>
-	  </div>
-  </a>
-	<a href="{{ site.basedir }}/projects/">
-	  <div class="project-box">
-		  <img src="{{ site.basedir }}/resources/questions.jpeg" />
-		  <div class="mask">
-     	         <div id="dummy"></div>
-			  <h3>What's next?</h3>
-			  <div class="project-info">
-				  <p>At any given time I may be working in between 2 and 20 miniture side-projects. Maybe one of the current crop will have enough potential to be turned into a full-out project. Maybe.</p>
-			  </div>
-		  </div>
-	  </div>
-  </a>
+  <div class="project-box"> <!-- START Thesis !-->
+    <img src="{{ site.baseurl }}/resources/hmcts-00.jpeg"/>
+    <input type="checkbox" id="thesis-show" />
+    <div class="project-background" style="background-color:orange"></div>
+    <div class="project-info">
+      <h3>PhD Thesis - Hierarchical MCTS</h3>
+      <p>Investigating the effect of using abstracted game states to augment MCTS selection policies.</p>
+    </div>
+    <label for="thesis-show">
+        <div class="project-show"></div>
+    </label>
+    <div class="project-link">
+        <a href="{{ site.baseurl }}/projects/thesis/">Read more...</a>
+    </div>
+  </div> <!-- END Thesis !-->
+
+  <div class="project-box"> <!-- START More !-->
+    <img src="{{ site.baseurl }}/resources/questions.jpeg"/>
+    <input type="checkbox" id="more-show" />
+    <div class="project-background" style="background-color:yellow"></div>
+    <div class="project-info">
+      <h3>What's next?</h3>
+      <p>At any given time I may be working in between 2 and 20 miniture side-projects. Maybe one of the current crop will have enough potential to be turned into a full-out project. Maybe.</p>
+    </div>
+    <label for="more-show">
+        <div class="project-show"></div>
+    </label>
+  </div> <!-- END More !-->
 </div>
-<br/><br/>
+
+<br/> <br/>
