@@ -12,12 +12,15 @@ Matthew Bedder
 {% include scripts.html %}
 	</head>
 	<body>
+		<header>
 {% include header.html %}
+		</header>
 		<main>
 			<div class="layout-outer">
 				<div class="layout-inner">
-{% if page.title %}
-				<h2>{{ page.title }}</h2>
+{% if page.customsitetitle %}
+{% elsif page.title %}
+                    <h2>{{ page.title }}</h2>
 {% endif %}
 				</div>
 			</div>
@@ -25,6 +28,8 @@ Matthew Bedder
 {{ content }}
 			</div>
 		</main>	
-	</body>
+		<footer>
 {% include footer.html %}
+		</footer>
+	</body>
 </html>
