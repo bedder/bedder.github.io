@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>
-{% if page.title %}
-{{ page.title }} - Matthew Bedder
-{% else %}
-Matthew Bedder
-{% endif %}
+		<title>{% if page.title %}
+			{{ page.title }} - Matthew Bedder{% else %}
+			Matthew Bedder{% endif %}
 		</title>
 {% include meta.html %}
 {% include scripts.html %}
@@ -17,11 +14,8 @@ Matthew Bedder
 		</header>
 		<main>
 			<div class="layout-outer">
-				<div class="layout-inner">
-{% if page.customsitetitle %}
-{% elsif page.title %}
-                    <h2>{{ page.title }}</h2>
-{% endif %}
+				<div class="layout-inner">{% if page.customsitetitle %}{% elsif page.title %}
+					<h2>{{ page.title }}</h2>{% endif %}
 				</div>
 			</div>
 			<div id="wide-container">
