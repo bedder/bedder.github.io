@@ -26,12 +26,9 @@
 				</nav>
 				<div class="layout-outer">
 					<div class="layout-inner">
-						<h1>
-{% if page.customsitetitle %}
-							<a class="title" href="{{ site.baseurl }}/">{{ page.customsitetitle }}</a>
-{% else %}
-							<a class="title" href="{{ site.baseurl }}/">Hi, I'm Matthew Bedder.</a>
-{% endif %}
+						<h1>{% if page.customsitetitle %}
+							<a class="title" href="{{ site.baseurl }}/">{{ page.customsitetitle }}</a>{% else %}
+							<a class="title" href="{{ site.baseurl }}/">Hi, I'm Matthew Bedder.</a>{% endif %}
 						</h1>
 					</div>
 				</div>
