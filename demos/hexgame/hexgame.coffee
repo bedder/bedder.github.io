@@ -1,5 +1,9 @@
 @tile = new Image()
 @tile.src = "tile_small.png"
+@tile_light = new Image()
+@tile_light.src = "tile_small_light.png"
+@tile_red = new Image()
+@tile_red.src = "tile_small_red.png"
 window.inLevel = false
 window.updateLock = false
 
@@ -9,13 +13,15 @@ initialize = ->
 	@levelNumber = 0
 
 	$("#canvas").mousemove (event) ->
+		board.selectAtPels(event.offsetX, event.offsetY)
+		redrawCanvas()
 		#
 
 	$("#canvas").click (event) ->
 		if window.inLevel and not window.updateLock
 			window.updateLock = true;
 			selected = board.atPoint(event.offsetX, event.offsetY)
-			if selected? and selected.visible(board.units[0].i, board.units[0].j) and selected.distance(board.units[0].i, board.units[0].j) == 1
+			if selected? and selected.visibleUnit(board.units[0]) and selected.distanceUnit(board.units[0]) == 1
 				board.units[0].move(selected.i, selected.j)
 				unitsMove()
 			else
@@ -29,14 +35,14 @@ redrawCanvas = ->
 	@context.strokeStyle="#0000ff";
 	@board.each (cell) ->
 		@context.beginPath()
-		@context.drawImage(tile, cell.x, cell.y) if cell.enabled
-		if @board.selected == cell
-			@context.font = "bold 25px sans-serif";
-			@context.lineCap="round";
-			@context.fillStyle="rgba(35,89,42,0.2)";
-			@context.fill()
-			@context.fillStyle="rgba(255,255,255,0.2)";
-			@context.fillText("#{@board.selected.horizontalIndex},#{@board.selected.verticalIndex}", @board.selected.centerX - 20, @board.selected.centerY + 8)
+		if cell.enabled
+			if (cell == board.selected) and cell.visibleUnit(board.units[0]) and (cell.distanceUnit(board.units[0]) == 1)
+				if cell.occupied
+					@context.drawImage(tile_red, cell.x, cell.y)
+				else
+					@context.drawImage(tile_light, cell.x, cell.y)
+			else
+				@context.drawImage(tile, cell.x, cell.y)
 		@context.closePath()
 	for unit in @board.units
 		if unit.type == 0 or unit.alive
@@ -53,9 +59,9 @@ loadLevel = ->
 
 	@board = new Board(9, 7, 60)
 	@board.toggle(0,0).toggle(8,0)
-	@board.unitTypes.push(new UnitType("main_char_100.png", 5, 1))
+	@board.unitTypes.push(new UnitType("main_char_100.png", 7, 1))
 	@board.unitTypes.push(new UnitType("light_knight_100.png", 3, 1))
-	@board.unitTypes.push(new UnitType("heavy_knight_100.png", 7, 1, "heavy_knight_stunned_100.png"))
+	@board.unitTypes.push(new UnitType("heavy_knight_100.png", 14, 1, "heavy_knight_stunned_100.png"))
 	@board.unitTypes.push(new UnitType("light_archer_100.png", 5, 1))
 	for unit in @board.unitTypes
 		unit.sprite.onload = ->

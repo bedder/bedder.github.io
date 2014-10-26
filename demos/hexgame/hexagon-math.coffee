@@ -35,7 +35,7 @@ class @Board
 		return if (i >= @cells.length) or (j >= @cells[0].length) or (i < 0) or (j < 0)
 		@cells[i][j]
 
-	enableAtPoint: (x, y) ->
+	selectAtPels: (x, y) ->
 		@selected = this.atPoint(x, y)
 
 	atPoint: (x, y) ->
@@ -76,6 +76,9 @@ class @Cell
 		@enabled = !@enabled
 		@occupied = !@occupied
 
+	visibleUnit: (unit) ->
+		@visible(unit.i, unit.j)
+
 	visible: (iTarget, jTarget) ->
 		@iDelta = @i - iTarget
 		@jDelta = @j - jTarget
@@ -84,6 +87,9 @@ class @Cell
 		else
 			@sign = -1
 		(@i == iTarget) or (@iDelta-2*@jDelta == 0) or (@iDelta-2*@jDelta == -@sign) or (@iDelta+2*@jDelta == 0) or (@iDelta+2*@jDelta == @sign)
+
+	distanceUnit: (unit) ->
+		@distance(unit.i, unit.j)
 
 	distance: (iTarget, jTarget) ->
 		Math.max(Math.abs(@i - iTarget), Math.abs(@j - jTarget))
@@ -136,8 +142,9 @@ class @Unit
 		@board.cells[@i][@j].occupied = false
 		@i = iTarget
 		@j = jTarget
-		@targetX = @board.cells[@i][@j].x
-		@targetY = @board.cells[@i][@j].y
+		currentType = @board.unitTypes[@type]
+		@targetX = @board.cells[@i][@j].x + currentType.offsetX
+		@targetY = @board.cells[@i][@j].y + currentType.offsetY
 		this
 
 	atTarget: () ->
