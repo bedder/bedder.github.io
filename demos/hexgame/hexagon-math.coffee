@@ -48,12 +48,14 @@ class @Board
 		if remainderX < (@subcellWidth / 3)
 			if ((subcellX + subcellY) % 2) == 0
 				if remainderX * @aspect + remainderY < @subcellHeight
-					i -= - 1
-					j -= - (i % 2)
+					i--
+					j -= (i % 2)
 			else
 				if remainderX * @aspect < remainderY
-					j += + (i % 2)
-					i -= - 1
+					console.log(i, j)
+					i--
+					j += ((i + 1) % 2)
+		console.log(x, y, i, j)
 		this.at(i, j)
 
 	selectAtPels: (x, y) ->
