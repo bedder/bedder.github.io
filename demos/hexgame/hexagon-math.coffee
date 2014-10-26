@@ -143,14 +143,25 @@ class @Unit
 		if @attackType=="Range" and @canShoot(@board.units[0].i, @board.units[0].j)
 			return @attack(@board.units[0].i, @board.units[0].j)
 
-		# TODO: Make decent AI!
+		bestTile = null
+		bestValue = -1
+
 		for cellArr in @board.cells
 			for cell in cellArr
 				if (cell.distance(@i, @j) == 1)
-					if cell == @board.atUnit(@board.units[0]) and @board.units[0].alive
+					if attackType="Stab" and cell == @board.atUnit(@board.units[0]) and @board.units[0].alive
 						return @move(cell.i, cell.j)
 					if (not cell.occupied)
-						return @move(cell.i, cell.j)
+						if @attackType == "Stab"
+							tileValue = 100 - Math.sqrt(Math.pow(cell.i - @board.units[0].i, 2) + Math.pow(cell.j - @board.units[0].j, 2))
+						else if @attackType == "Range"
+							tileValue = 100 * (cell.visibleUnit(@board.units[0])) + Math.sqrt(Math.pow(cell.i - @board.units[0].i, 2) + Math.pow(cell.j - @board.units[0].j, 2))
+						else
+							tileValue = Math.random()
+						if tileValue > bestValue
+							bestTile = cell
+							bestValue = tileValue
+		return @move(bestTile.i, bestTile.j)
 
 	canShoot: (iTarget, jTarget) ->
 		return false if iTarget==@i and jTarget==@j
