@@ -15,13 +15,12 @@ initialize = ->
 	$("#canvas").mousemove (event) ->
 		board.selectAtPels(event.offsetX, event.offsetY)
 		redrawCanvas()
-		#
 
 	$("#canvas").click (event) ->
 		if window.inLevel and not window.updateLock
 			window.updateLock = true;
-			selected = board.atPoint(event.offsetX, event.offsetY)
-			if selected? and selected.visibleUnit(board.units[0]) and selected.distanceUnit(board.units[0]) == 1
+			selected = board.atPels(event.offsetX, event.offsetY)
+			if selected? and (selected.distanceUnit(board.units[0]) == 1)
 				board.units[0].move(selected.i, selected.j)
 				unitsMove()
 			else
@@ -36,7 +35,7 @@ redrawCanvas = ->
 	@board.each (cell) ->
 		@context.beginPath()
 		if cell.enabled
-			if (cell == board.selected) and cell.visibleUnit(board.units[0]) and (cell.distanceUnit(board.units[0]) == 1)
+			if (cell == board.selected) and (cell.distanceUnit(board.units[0]) == 1)
 				if cell.occupied
 					@context.drawImage(tile_red, cell.x, cell.y)
 				else

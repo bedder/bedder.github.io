@@ -26,8 +26,8 @@ class @Board
 		@selected.toggle() if @selected?
 		this
 
-	toggleAtPoint: (x, y) ->
-		@selected = @atPoint(x, y)
+	toggleAtPels: (x, y) ->
+		@selected = @atPels(x, y)
 		@selected.toggle() if @selected?
 		this
 
@@ -35,10 +35,10 @@ class @Board
 		return if (i >= @cells.length) or (j >= @cells[0].length) or (i < 0) or (j < 0)
 		@cells[i][j]
 
-	selectAtPels: (x, y) ->
-		@selected = this.atPoint(x, y)
+	atUnit: (unit) ->
+		@at(unit.i, unit.j)
 
-	atPoint: (x, y) ->
+	atPels: (x, y) ->
 		subcellX   = Math.floor(x / @subcellWidth)
 		remainderX = x - (subcellX * @subcellWidth)
 		subcellY   = Math.floor(y / @subcellHeight)
@@ -55,6 +55,9 @@ class @Board
 					j += + (i % 2)
 					i -= - 1
 		this.at(i, j)
+
+	selectAtPels: (x, y) ->
+		@selected = this.atPels(x, y)
 
 class @Cell
 	constructor: (@board, @i, @j) ->
@@ -76,8 +79,6 @@ class @Cell
 		@enabled = !@enabled
 		@occupied = !@occupied
 
-	visibleUnit: (unit) ->
-		@visible(unit.i, unit.j)
 
 	visible: (iTarget, jTarget) ->
 		@iDelta = @i - iTarget
@@ -88,11 +89,17 @@ class @Cell
 			@sign = -1
 		(@i == iTarget) or (@iDelta-2*@jDelta == 0) or (@iDelta-2*@jDelta == -@sign) or (@iDelta+2*@jDelta == 0) or (@iDelta+2*@jDelta == @sign)
 
-	distanceUnit: (unit) ->
-		@distance(unit.i, unit.j)
+	visibleUnit: (unit) ->
+		@visible(unit.i, unit.j)
 
 	distance: (iTarget, jTarget) ->
-		Math.max(Math.abs(@i - iTarget), Math.abs(@j - jTarget))
+		if @visible(iTarget, jTarget)
+			Math.max(Math.abs(@i - iTarget), Math.abs(@j - jTarget))
+		else
+			NaN
+
+	distanceUnit: (unit) ->
+		@distance(unit.i, unit.j)
 
 	draw: (context) ->
 		if @enabled
@@ -113,38 +120,38 @@ class @Unit
 	constructor: (@board, @i, @j, @type, @killable=true) ->
 		@alive    = true
 		@stunned  = false
-		if @board.cells[@i][@j].occupied
+		if @board.at(@i, @j).occupied
 			console.log("Error: Trying to put new unit in an occupied tile")
 			return
-		@board.cells[@i][@j].occupied = true
+		@board.at(@i, @j).occupied = true
 		currentType = @board.unitTypes[@type]
-		@x = @board.cells[@i][@j].x + currentType.offsetX
-		@y = @board.cells[@i][@j].y + currentType.offsetY
+		@x = @board.at(@i, @j).x + currentType.offsetX
+		@y = @board.at(@i, @j).y + currentType.offsetY
 		@targetX = @x
 		@targetY = @y
 
 	makeMove: ->
 		for cellArr in @board.cells
 			for cell in cellArr
-				if (cell.visible(@i, @j)) and (cell.distance(@i, @j) == 1)
-					if cell == @board.cells[@board.units[0].i][@board.units[0].j] and @board.units[0].alive
+				if (cell.distance(@i, @j) == 1)
+					if cell == @board.atUnit(@board.units[0]) and @board.units[0].alive
 						return @move(cell.i, cell.j)
 					if (not cell.occupied)
 						return @move(cell.i, cell.j)
 
 	move: (iTarget, jTarget) ->
-		if @board.cells[iTarget][jTarget].occupied
+		if @board.at(iTarget, jTarget).occupied
 			for unit in @board.units
 				if iTarget == unit.i and jTarget == unit.j
 					unit.kill()
-			return if @board.cells[iTarget][jTarget].occupied
-		@board.cells[iTarget][jTarget].occupied = true
-		@board.cells[@i][@j].occupied = false
+			return if @board.at(iTarget, jTarget).occupied
+		@board.at(iTarget, jTarget).occupied = true
+		@board.at(@i, @j).occupied = false
 		@i = iTarget
 		@j = jTarget
 		currentType = @board.unitTypes[@type]
-		@targetX = @board.cells[@i][@j].x + currentType.offsetX
-		@targetY = @board.cells[@i][@j].y + currentType.offsetY
+		@targetX = @board.at(@i, @j).x + currentType.offsetX
+		@targetY = @board.at(@i, @j).y + currentType.offsetY
 		this
 
 	atTarget: () ->
@@ -165,7 +172,7 @@ class @Unit
 	kill: () ->
 		if @killable == true
 			@alive = false
-			@board.cells[@i][@j].occupied = false
+			@board.at(@i, @j).occupied = false
 		else
 			@stunned = true
 
