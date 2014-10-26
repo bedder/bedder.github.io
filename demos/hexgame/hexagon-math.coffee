@@ -116,7 +116,7 @@ class @Unit
 		for cellArr in @board.cells
 			for cell in cellArr
 				if (cell.visible(@i, @j)) and (cell.distance(@i, @j) == 1)
-					if cell == @board.cells[@board.units[0].i][@board.units[0].j]
+					if cell == @board.cells[@board.units[0].i][@board.units[0].j] and @board.units[0].alive
 						return @move(cell.i, cell.j)
 					if (not cell.occupied)
 						return @move(cell.i, cell.j)
@@ -138,3 +138,17 @@ class @Unit
 			@board.cells[@i][@j].occupied = false
 		else
 			@stunned = true
+
+class @Sprite
+	constructor: (spriteSheet, @frameWidth, @frameHeight, @nFrames) ->
+		@image = new Image()
+		@image.src = spriteSheet
+		@frameNumber = 0
+
+	draw: (context, x, y) ->
+		context.drawImage(@image, @frameNumber * @frameWidth, 0, @frameWidth, @frameHeight, x, y, @frameWidth, @frameHeight)
+
+	nextFrame: () ->
+		@frameNumber++
+		@frameNumber = 0 if @frameNumber >= @nFrames
+		this

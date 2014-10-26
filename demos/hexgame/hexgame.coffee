@@ -1,29 +1,28 @@
 @tile = new Image()
 @tile.src = "tile_small.png"
+window.inLevel = false
+window.updateLock = false
 
 initialize = ->
 	@canvas	= $("#canvas")[0]
 	@context = canvas.getContext("2d")
 	@levelNumber = 0
-	@inLevel = false
-	@updateLock = false
 
 	$("#canvas").mousemove (event) ->
 		#
 
 	$("#canvas").click (event) ->
-		if inLevel and not @updateLock
-			@updateLock = true;
+		if window.inLevel and not window.updateLock
+			window.updateLock = true;
 			selected = board.atPoint(event.offsetX, event.offsetY)
 			if selected? and selected.visible(board.units[0].i, board.units[0].j) and selected.distance(board.units[0].i, board.units[0].j) == 1
 				board.units[0].move(selected.i, selected.j)
 				redrawCanvas()
 				unitsMove()
-				@updateLock = false
 			else
-				@updateLock = false;
+				window.updateLock = false;
 		else
-			console.log("Be patient!", inLevel, @updateLock)
+			console.log("Be patient!", window.inLevel, window.updateLock)
 	loadLevel()
 	redrawCanvas()
 
@@ -33,7 +32,7 @@ redrawCanvas = ->
 	@context.strokeStyle="#0000ff";
 	@board.each (cell) ->
 		@context.beginPath()
-		@context.drawImage(@tile, cell.x, cell.y) if cell.enabled
+		@context.drawImage(tile, cell.x, cell.y) if cell.enabled
 		if @board.selected == cell
 			@context.font = "bold 25px sans-serif";
 			@context.lineCap="round";
@@ -53,7 +52,7 @@ redrawCanvas = ->
 				@context.drawImage(currentType.altSprite, x, y)
 
 loadLevel = ->
-	@updateLock = true
+	window.updateLock = true
 	delete @board
 
 	@board = new Board(9, 7, 60)
@@ -90,7 +89,8 @@ loadLevel = ->
 			@board.units.push(new Unit(@board, 5, 6, 3))
 		else
 			console.log("Trying to spawn for unknown level" + levelNumber)
-	@inLevel = true
+	window.inLevel = true
+	window.updateLock = false
 	redrawCanvas()
 
 unitsMove = ->
@@ -115,15 +115,14 @@ testCompletion = ->
 		return loadLevel()
 	for unit in @board.units
 		if unit.type != 0 and unit.alive
-			@updateLock = false
+			window.updateLock = false
 			return
 	alert("You killed everyone. Well done?")
 	@levelNumber++
 	loadLevel()
 
 testCompletionCallback = ->
-	@updateLock = false
-	console.log("?")
+	window.updateLock = false
 	testCompletion()
 
 $(document).ready ->

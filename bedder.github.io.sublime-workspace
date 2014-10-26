@@ -1,0 +1,423 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"redrawCanvas"
+			],
+			[
+				"testC",
+				"testCompletionCallback"
+			],
+			[
+				"altSpr",
+				"altSpriteLocation"
+			],
+			[
+				"altS",
+				"altSpriteLocation"
+			],
+			[
+				"level",
+				"levelNumber"
+			],
+			[
+				"y",
+				"indexY"
+			],
+			[
+				"unit",
+				"unitType"
+			],
+			[
+				"light",
+				"light_knight"
+			],
+			[
+				"main",
+				"mainChar"
+			],
+			[
+				"draw",
+				"drawImage"
+			],
+			[
+				"subcell",
+				"subcellWidth"
+			],
+			[
+				"cellH",
+				"cellHeight"
+			],
+			[
+				"cell",
+				"cellHeight"
+			],
+			[
+				"bi",
+				"bird-debug"
+			],
+			[
+				"pipe",
+				"pipe_main"
+			],
+			[
+				"de",
+				"debug_birds"
+			],
+			[
+				"PIPE",
+				"PIPES_CLEARANCE"
+			],
+			[
+				"drawPipe",
+				"drawPipePair"
+			],
+			[
+				"restar",
+				"restartGame"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "demos/hexgame/index.html",
+			"settings":
+			{
+				"buffer_size": 412,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "demos/hexgame/hexgame.coffee",
+			"settings":
+			{
+				"buffer_size": 3941,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "demos/hexgame/hexagon-math.coffee",
+			"settings":
+			{
+				"buffer_size": 4037,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/proj/bedder.github.io",
+		"/D/proj/bedder.github.io/_includes",
+		"/D/proj/bedder.github.io/_layouts",
+		"/D/proj/bedder.github.io/about",
+		"/D/proj/bedder.github.io/css",
+		"/D/proj/bedder.github.io/demos",
+		"/D/proj/bedder.github.io/demos/hexgame",
+		"/D/proj/bedder.github.io/demos/xcom",
+		"/D/proj/bedder.github.io/js"
+	],
+	"file_history":
+	[
+		"/D/proj/bedder.github.io/_layouts/default.html",
+		"/D/proj/bedder.github.io/_layouts/wide.html",
+		"/D/proj/bedder.github.io/_layouts/blank.html",
+		"/D/proj/bedder.github.io/demos/hexgame/main_char.png",
+		"/D/proj/bedder.github.io/demos/hexgame/tile_tiny.png",
+		"/D/proj/bedder.github.io/demos/hexgame/hex_tile.png",
+		"/D/proj/bedder.github.io/_includes/header.html",
+		"/D/proj/bedder.github.io/css/site.scss",
+		"/D/proj/bedder.github.io/demos/hexgame/tile-tiny.png",
+		"/D/proj/bedder.github.io/js/coffee-script.js",
+		"/D/proj/bedder.github.io/demos/xcom/warning.html",
+		"/D/proj/bedder.github.io/demos/xcom/index.html",
+		"/D/proj/bedder.github.io/resources/social/social.xcf",
+		"/D/proj/bedder.github.io/demos/hexgame/hexgame.coffee",
+		"/D/proj/bedder.github.io/_includes/footer.html",
+		"/D/proj/bedder.github.io/_includes/scripts.html",
+		"/D/proj/bedder.github.io/_includes/meta.html",
+		"/D/proj/bedder.github.io/demos/hexgame/hexagon-math.coffee",
+		"/D/proj/bedder.github.io/demos/hexgame/index.html",
+		"/D/proj/bedder.github.io/demos/phaser-demo/index.html",
+		"/D/proj/bedder.github.io/demos/xcom/script.js",
+		"/D/proj/bedder.github.io/_config.yml",
+		"/D/proj/bedder.github.io/CNAME",
+		"/D/proj/bedder.github.io/about/index.html",
+		"/D/proj/bedder.github.io/demos/phaser-demo/assets/bird-debug.json",
+		"/D/proj/bedder.github.io/demos/phaser-demo/script.js",
+		"/D/proj/bedder.github.io/demos/phaser-demo/assets/bird-debug.png",
+		"/D/proj/bedder.github.io/demos/index.html",
+		"/D/proj/bedder.github.io/Gemfile",
+		"/D/Programming/proj/phaser-proj/_includes/footer.html",
+		"/D/Programming/proj/phaser-proj/_layouts/default.html",
+		"/D/Programming/proj/phaser-proj/index.html",
+		"/D/Programming/proj/phaser-proj/_config.yml",
+		"/C/Users/Matthew/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Matthew/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Ruby21-x64/dev/config.yml",
+		"/C/Program Files/Sublime Text 3/changelog.txt",
+		"/D/test.srt",
+		"/D/test.sup",
+		"/D/tmp/batchCompressMovies.bat",
+		"/D/SkyDrive/notes.tex"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console",
+			"console.log",
+			"console.lo",
+			"console.",
+			"cellX",
+			"console.lo",
+			"  "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\t"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "demos/hexgame/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 412,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								402
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "demos/hexgame/hexgame.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								596,
+								596
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "demos/hexgame/hexagon-math.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4037,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3655,
+								3659
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1355.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "bedder.github.io.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"xcom",
+				"demos\\xcom\\index.html"
+			],
+			[
+				"warnin",
+				"demos\\xcom\\warning.html"
+			],
+			[
+				"scripts",
+				"_includes\\scripts.html"
+			],
+			[
+				"script",
+				"_includes\\scripts.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 198.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
