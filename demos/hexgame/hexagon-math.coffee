@@ -108,6 +108,9 @@ class @Cell
 			context.lineTo @cornersX[index],  @cornersY[index]
 			context.lineTo @cornersX[0], @cornersY[0]
 
+	equals: (iQuery, jQuery) ->
+		(@i == iQuery) and (@j == jQuery)
+
 class @UnitType
 	constructor: (spriteLocation, @offsetX, @offsetY, altSpriteLocation=null) ->
 		@sprite = new Image()
@@ -129,8 +132,18 @@ class @Unit
 		@y = @board.at(@i, @j).y + currentType.offsetY
 		@targetX = @x
 		@targetY = @y
+		@range   = 4
+		@projectileX = null
+		@projectileY = null
+		@projectileTargetX   = null
+		@projectileTargetY   = null
+		@projectileDirection = 0
 
 	makeMove: ->
+		if @attackType=="Range" and @canShoot(@board.units[0].i, @board.units[0].j)
+			return @attack(@board.units[0].i, @board.units[0].j)
+
+		# TODO: Make decent AI!
 		for cellArr in @board.cells
 			for cell in cellArr
 				if (cell.distance(@i, @j) == 1)
@@ -138,6 +151,44 @@ class @Unit
 						return @move(cell.i, cell.j)
 					if (not cell.occupied)
 						return @move(cell.i, cell.j)
+
+	canShoot: (iTarget, jTarget) ->
+		return false if iTarget==@i and jTarget==@j
+		distance = @board.at(iTarget, jTarget).distanceUnit(this)
+		if distance>1 and distance <= @range
+			blocked = false
+			for cellArr in @board.cells
+				for cell in cellArr
+					if not cell.equals(iTarget, jTarget) and not cell.equals(@i, @j) and (cell.distance(iTarget, jTarget) + cell.distanceUnit(this) == distance) and cell.occupied
+						console.log(cell.i, cell.j)
+						blocked = true
+			return not blocked
+		return false
+
+	attack: (iTarget, jTarget) ->
+		sourceTile = @board.at(@i, @j)
+		@projectileX = sourceTile.x
+		@projectileY = sourceTile.y
+		tile = @board.at(iTarget, jTarget)
+		@projectileTargetX = tile.x
+		@projectileTargetY = tile.y
+
+		deltaX = @projectileX - @projectileTargetX
+		deltaY = @projectileY - @projectileTargetY
+
+		console.log(deltaX, deltaY)
+		if deltaX == 0
+			@projectileDirection = 0
+			return this
+		else if Math.sign(deltaX) == -Math.sign(deltaY)
+			@projectileDirection = 1
+			return this
+		else if deltaY == 0
+			@projectileDirection = 2
+			return this
+		else
+			@projectileDirection = 3
+			return this
 
 	move: (iTarget, jTarget) ->
 		# Detect if the move is valid
@@ -181,6 +232,7 @@ class @Unit
 		return (@x == @targetX) and (@y == @targetY)
 
 	tick: (maxDistance) ->
+		# Unit
 		deltaX = @targetX - @x
 		deltaY = @targetY - @y
 		delta  = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
@@ -191,6 +243,23 @@ class @Unit
 		else
 			@x = @targetX
 			@y = @targetY
+		# Projectile
+		if @projectileX? and @projectileY?
+			deltaX = @projectileTargetX - @projectileX
+			deltaY = @projectileTargetY - @projectileY
+			if deltaX==0 and deltaY==0
+				@projectileX = @projectileY = null
+				@board.units[0].kill()
+				return
+			delta  = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
+			if delta > 3 * maxDistance
+				proportion = 3*maxDistance / delta
+				@projectileX += (proportion * deltaX)
+				@projectileY += (proportion * deltaY)
+			else
+				@projectileX = @projectileTargetX
+				@projectileY = @projectileTargetY
+
 
 	kill: () ->
 		if @killable == true

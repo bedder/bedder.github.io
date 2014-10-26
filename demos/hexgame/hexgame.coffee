@@ -4,6 +4,8 @@
 @tile_light.src = "tile_small_light.png"
 @tile_red = new Image()
 @tile_red.src = "tile_small_red.png"
+@arrow = new Image()
+@arrow.src = "arrows.png"
 window.inLevel = false
 window.updateLock = false
 
@@ -46,11 +48,22 @@ redrawCanvas = ->
 	for unit in @board.units
 		if unit.type == 0 or unit.alive
 			currentType = @board.unitTypes[unit.type]
-			unit.tick(5)
 			if not unit.stunned
 				@context.drawImage(currentType.sprite, unit.x, unit.y)
 			else
 				@context.drawImage(currentType.altSprite, unit.x, unit.y)
+			if unit.projectileX? and unit.projectileY?
+				switch unit.projectileDirection
+					when 0
+						@context.drawImage(arrow, 36,  0,  2, 36, unit.projectileX- 1+60, unit.projectileY-18+52,  2, 36)
+					when 1
+						@context.drawImage(arrow,  0, 20, 32, 18, unit.projectileX-16+60, unit.projectileY- 9+52, 32, 18)
+					when 2
+						@context.drawImage(arrow,  0, 18,  2, 36, unit.projectileX-18+60, unit.projectileY- 1+52,  2, 36)
+					when 3
+						@context.drawImage(arrow,  0,  0, 32, 18, unit.projectileX-16+60, unit.projectileY- 9+52, 32, 18)
+					else
+						console.log("Unsupported projectile direction", unit.projectileDirection)
 
 loadLevel = ->
 	window.updateLock = true
@@ -72,13 +85,13 @@ loadLevel = ->
 		when 0
 			console.log("Starting spawn for L0")
 			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
-			@board.units.push(new Unit(@board, 4, 4, 2, false))
-			@board.units.push(new Unit(@board, 3, 5, 1))
-			@board.units.push(new Unit(@board, 4, 5, 1))
-			@board.units.push(new Unit(@board, 5, 5, 1))
-			@board.units.push(new Unit(@board, 3, 6, 3))
-			@board.units.push(new Unit(@board, 4, 6, 3))
-			@board.units.push(new Unit(@board, 5, 6, 3))
+			@board.units.push(new Unit(@board, 3, 6, 3, true, "Range"))
+			@board.units.push(new Unit(@board, 4, 6, 3, true, "Range"))
+			@board.units.push(new Unit(@board, 5, 6, 3, true, "Range"))
+			#@board.units.push(new Unit(@board, 4, 4, 2, false))
+			#@board.units.push(new Unit(@board, 3, 5, 1))
+			#@board.units.push(new Unit(@board, 4, 5, 1))
+			#@board.units.push(new Unit(@board, 5, 5, 1))
 		when 1
 			console.log("Starting spawn for L1")
 			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
@@ -112,7 +125,7 @@ unitsMoveCallback = ->
 
 unitAnimateCallback = ->
 	unit = @board.units[@nextUnitIndex]
-	if unit.atTarget()
+	if unit.atTarget() and not unit.projectileX?
 		@nextUnitIndex++
 		unitsMoveCallback()
 		return
