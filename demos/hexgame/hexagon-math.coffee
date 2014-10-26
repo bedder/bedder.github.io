@@ -120,7 +120,7 @@ class @UnitType
 			@altSprite.src = altSpriteLocation
 
 class @Unit
-	constructor: (@board, @i, @j, @type, @killable=true, @attackType="Stab") ->
+	constructor: (@board, @i, @j, @type, @killable=true, @attackType="Stab", @name="Witty McWitterson") ->
 		@alive    = true
 		@stunned  = false
 		if @board.at(@i, @j).occupied
@@ -277,7 +277,7 @@ class @Unit
 
 
 	kill: () ->
-		if @killable == true
+		if @killable
 			@alive = false
 			@board.at(@i, @j).occupied = false
 		else

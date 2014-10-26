@@ -90,6 +90,15 @@ redrawCanvas = ->
 				@context.drawImage(currentType.sprite, unit.x, unit.y)
 			else
 				@context.drawImage(currentType.altSprite, unit.x, unit.y)
+				@context.font = "bold 15pt sans-serif"
+				@context.textAlign = "center"
+				@context.fillStyle = "rgb(255, 255, 255)"
+				@context.fillText("#{unit.stunDuration}", unit.x + 30, unit.y + 50)
+			tile = @board.atPels(unit.x, unit.y)
+			@context.font = "bold 10pt sans-serif"
+			@context.textAlign = "center"
+			@context.fillStyle = "rgba(255, 255, 255, 0.8)"
+			@context.fillText("#{unit.name}", unit.x + 30, unit.y)
 
 loadLevel = ->
 	window.updateLock = true
@@ -110,24 +119,24 @@ loadLevel = ->
 	switch levelNumber
 		when 0
 			console.log("Starting spawn for L0")
-			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
-			#@board.units.push(new Unit(@board, 3, 3, 3, true, "Range"))
-			#@board.units.push(new Unit(@board, 4, 3, 3, true, "Range"))
-			#@board.units.push(new Unit(@board, 5, 3, 3, true, "Range"))
-			#@board.units.push(new Unit(@board, 4, 4, 2, false))
-			@board.units.push(new Unit(@board, 3, 4, 1))
-			@board.units.push(new Unit(@board, 4, 4, 1))
-			@board.units.push(new Unit(@board, 5, 4, 1))
+			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe", "Brynjar"))
+			#@board.units.push(new Unit(@board, 3, 3, 3, true, "Range", "Edmund"))
+			#@board.units.push(new Unit(@board, 4, 3, 3, true, "Range", "Leofric"))
+			#@board.units.push(new Unit(@board, 5, 3, 3, true, "Range", "Oswin"))
+			#@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", "Godric"))
+			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", "Payton"))
+			@board.units.push(new Unit(@board, 4, 4, 1, true, "Stab", "Winfried"))
+			@board.units.push(new Unit(@board, 5, 4, 1, true, "Stab", "Algar"))
 		when 1
 			console.log("Starting spawn for L1")
-			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
-			@board.units.push(new Unit(@board, 4, 4, 2, false))
-			@board.units.push(new Unit(@board, 3, 5, 1))
-			@board.units.push(new Unit(@board, 4, 5, 1))
-			@board.units.push(new Unit(@board, 5, 5, 1))
-			@board.units.push(new Unit(@board, 3, 6, 3, true, "Range"))
-			@board.units.push(new Unit(@board, 4, 6, 3, true, "Range"))
-			@board.units.push(new Unit(@board, 5, 6, 3, true, "Range"))
+			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe", "Brynjar"))
+			@board.units.push(new Unit(@board, 3, 6, 3, true, "Range", "Edmund"))
+			@board.units.push(new Unit(@board, 4, 6, 3, true, "Range", "Leofric"))
+			@board.units.push(new Unit(@board, 5, 6, 3, true, "Range", "Oswin"))
+			@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", "Godric"))
+			@board.units.push(new Unit(@board, 3, 5, 1, true, "Stab", "Payton"))
+			@board.units.push(new Unit(@board, 4, 5, 1, true, "Stab", "Winfried"))
+			@board.units.push(new Unit(@board, 5, 5, 1, true, "Stab", "Algar"))
 		else
 			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
 			console.log("Trying to spawn for unknown level" + levelNumber)
