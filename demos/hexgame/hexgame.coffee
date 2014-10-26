@@ -17,12 +17,9 @@ initialize = ->
 			selected = board.atPoint(event.offsetX, event.offsetY)
 			if selected? and selected.visible(board.units[0].i, board.units[0].j) and selected.distance(board.units[0].i, board.units[0].j) == 1
 				board.units[0].move(selected.i, selected.j)
-				redrawCanvas()
 				unitsMove()
 			else
 				window.updateLock = false;
-		else
-			console.log("Be patient!", window.inLevel, window.updateLock)
 	loadLevel()
 	redrawCanvas()
 
@@ -42,14 +39,13 @@ redrawCanvas = ->
 			@context.fillText("#{@board.selected.horizontalIndex},#{@board.selected.verticalIndex}", @board.selected.centerX - 20, @board.selected.centerY + 8)
 		@context.closePath()
 	for unit in @board.units
-		if unit.alive
+		if unit.type == 0 or unit.alive
 			currentType = @board.unitTypes[unit.type]
-			x = @board.cells[unit.i][unit.j].x + currentType.offsetX
-			y = @board.cells[unit.i][unit.j].y + currentType.offsetY
+			unit.tick(5)
 			if not unit.stunned
-				@context.drawImage(currentType.sprite, x, y)
+				@context.drawImage(currentType.sprite, unit.x, unit.y)
 			else
-				@context.drawImage(currentType.altSprite, x, y)
+				@context.drawImage(currentType.altSprite, unit.x, unit.y)
 
 loadLevel = ->
 	window.updateLock = true
@@ -94,20 +90,32 @@ loadLevel = ->
 	redrawCanvas()
 
 unitsMove = ->
-	@nextUnitIndex = 1
-	unitsMoveCallback()
+	@nextUnitIndex = 0
+	unitAnimateCallback()
 
 unitsMoveCallback = ->
 	while @nextUnitIndex < @board.units.length
 		unit = @board.units[@nextUnitIndex]
 		if unit.alive and not unit.stunned
-			unit.makeMove()
+			unit.makeMove().tick(10)
 			redrawCanvas()
-			@nextUnitIndex++
-			setTimeout(unitsMoveCallback, 250)
+			setTimeout(unitAnimateCallback, 25)
 			return
 		@nextUnitIndex++
 	setTimeout(testCompletionCallback, 250)
+
+unitAnimateCallback = ->
+	unit = @board.units[@nextUnitIndex]
+	if unit.atTarget()
+		@nextUnitIndex++
+		unitsMoveCallback()
+		return
+	else
+		unit.tick(10)
+		redrawCanvas()
+		setTimeout(unitAnimateCallback, 25)
+		return
+
 
 testCompletion = ->
 	if not @board.units[0].alive

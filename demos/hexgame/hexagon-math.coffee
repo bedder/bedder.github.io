@@ -111,6 +111,11 @@ class @Unit
 			console.log("Error: Trying to put new unit in an occupied tile")
 			return
 		@board.cells[@i][@j].occupied = true
+		currentType = @board.unitTypes[@type]
+		@x = @board.cells[@i][@j].x + currentType.offsetX
+		@y = @board.cells[@i][@j].y + currentType.offsetY
+		@targetX = @x
+		@targetY = @y
 
 	makeMove: ->
 		for cellArr in @board.cells
@@ -131,6 +136,24 @@ class @Unit
 		@board.cells[@i][@j].occupied = false
 		@i = iTarget
 		@j = jTarget
+		@targetX = @board.cells[@i][@j].x
+		@targetY = @board.cells[@i][@j].y
+		this
+
+	atTarget: () ->
+		return (@x == @targetX) and (@y == @targetY)
+
+	tick: (maxDistance) ->
+		deltaX = @targetX - @x
+		deltaY = @targetY - @y
+		delta  = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
+		if delta > maxDistance
+			proportion = maxDistance / delta
+			@x += (proportion * deltaX)
+			@y += (proportion * deltaY)
+		else
+			@x = @targetX
+			@y = @targetY
 
 	kill: () ->
 		if @killable == true
