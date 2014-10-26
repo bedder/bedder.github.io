@@ -1,5 +1,6 @@
 @sprites = new Object()
 @damageMarkers = []
+@personified = true
 
 window.inLevel = false
 window.updateLock = false
@@ -8,6 +9,8 @@ initialize = ->
 	@canvas	= $("#canvas")[0]
 	@context = canvas.getContext("2d")
 	@levelNumber = 0
+
+	@personified = not (window.location.hash == '#tile')
 
 	#Load resources
 	@sprites.tile = new Image()
@@ -106,39 +109,49 @@ loadLevel = ->
 
 	@board = new Board(9, 7, 60)
 	@board.toggle(0,0).toggle(8,0)
-	@board.unitTypes.push(new UnitType("main_char_large.png", 31, 6))
-	@board.unitTypes.push(new UnitType("light_knight_large.png", 33, 6))
-	@board.unitTypes.push(new UnitType("heavy_knight_large.png", 26, 3, "heavy_knight_stunned_large.png"))
-	@board.unitTypes.push(new UnitType("light_archer_large.png", 20, 6))
+	names = []
+	if @personified
+		@board.unitTypes.push(new UnitType("main_char_large.png", 31, 6))
+		@board.unitTypes.push(new UnitType("light_knight_large.png", 33, 6))
+		@board.unitTypes.push(new UnitType("heavy_knight_large.png", 26, 3, "heavy_knight_stunned_large.png"))
+		@board.unitTypes.push(new UnitType("light_archer_large.png", 20, 6))
+		names = ["Brynjar", "Edmund", "Leofric", "Oswin", "Godric", "Payton", "Winfried", "Algar"]
+	else
+		@board.unitTypes.push(new UnitType("tile_blue.png", 30, 22))
+		@board.unitTypes.push(new UnitType("tile_red.png", 30, 22))
+		@board.unitTypes.push(new UnitType("tile_red_square.png", 30, 22, "tile_red_square.png"))
+		@board.unitTypes.push(new UnitType("tile_red_star.png", 30, 22))
+		names = ["you", "ranged enemy", "ranged enemy", "ranged enemy", "heavy enemy", "basic enemy", "basic enemy", "basic enemy"]
 	for unit in @board.unitTypes
 		unit.sprite.onload = ->
 			redrawCanvas()
 		unit.altSprite.onload = ->
 			redrawCanvas()
 
+
 	switch levelNumber
 		when 0
 			console.log("Starting spawn for L0")
-			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe", "Brynjar"))
-			#@board.units.push(new Unit(@board, 3, 3, 3, true, "Range", "Edmund"))
-			#@board.units.push(new Unit(@board, 4, 3, 3, true, "Range", "Leofric"))
-			#@board.units.push(new Unit(@board, 5, 3, 3, true, "Range", "Oswin"))
-			#@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", "Godric"))
-			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", "Payton"))
-			@board.units.push(new Unit(@board, 4, 4, 1, true, "Stab", "Winfried"))
-			@board.units.push(new Unit(@board, 5, 4, 1, true, "Stab", "Algar"))
+			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe", names[0]))
+			#@board.units.push(new Unit(@board, 3, 3, 3, true, "Range", names[1]))
+			#@board.units.push(new Unit(@board, 4, 3, 3, true, "Range", names[2]))
+			#@board.units.push(new Unit(@board, 5, 3, 3, true, "Range", names[3]))
+			#@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", names[4]))
+			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", names[5]))
+			@board.units.push(new Unit(@board, 4, 4, 1, true, "Stab", names[6]))
+			@board.units.push(new Unit(@board, 5, 4, 1, true, "Stab", names[7]))
 		when 1
 			console.log("Starting spawn for L1")
-			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe", "Brynjar"))
-			@board.units.push(new Unit(@board, 3, 6, 3, true, "Range", "Edmund"))
-			@board.units.push(new Unit(@board, 4, 6, 3, true, "Range", "Leofric"))
-			@board.units.push(new Unit(@board, 5, 6, 3, true, "Range", "Oswin"))
-			@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", "Godric"))
-			@board.units.push(new Unit(@board, 3, 5, 1, true, "Stab", "Payton"))
-			@board.units.push(new Unit(@board, 4, 5, 1, true, "Stab", "Winfried"))
-			@board.units.push(new Unit(@board, 5, 5, 1, true, "Stab", "Algar"))
+			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe", names[0]))
+			@board.units.push(new Unit(@board, 3, 6, 3, true, "Range", names[1]))
+			@board.units.push(new Unit(@board, 4, 6, 3, true, "Range", names[2]))
+			@board.units.push(new Unit(@board, 5, 6, 3, true, "Range", names[3]))
+			@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", names[4]))
+			@board.units.push(new Unit(@board, 3, 5, 1, true, "Stab", names[5]))
+			@board.units.push(new Unit(@board, 4, 5, 1, true, "Stab", names[6]))
+			@board.units.push(new Unit(@board, 5, 5, 1, true, "Stab", names[7]))
 		else
-			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
+			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe", names[0]))
 			console.log("Trying to spawn for unknown level" + levelNumber)
 	window.inLevel = true
 	window.updateLock = false
