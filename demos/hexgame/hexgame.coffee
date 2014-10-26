@@ -58,10 +58,10 @@ loadLevel = ->
 
 	@board = new Board(9, 7, 60)
 	@board.toggle(0,0).toggle(8,0)
-	@board.unitTypes.push(new UnitType("main_char_100.png", 7, 1))
-	@board.unitTypes.push(new UnitType("light_knight_100.png", 3, 1))
-	@board.unitTypes.push(new UnitType("heavy_knight_100.png", 14, 1, "heavy_knight_stunned_100.png"))
-	@board.unitTypes.push(new UnitType("light_archer_100.png", 5, 1))
+	@board.unitTypes.push(new UnitType("main_char_large.png", 31, 6))
+	@board.unitTypes.push(new UnitType("light_knight_large.png", 33, 6))
+	@board.unitTypes.push(new UnitType("heavy_knight_large.png", 26, 3, "heavy_knight_stunned_large.png"))
+	@board.unitTypes.push(new UnitType("light_archer_large.png", 20, 6))
 	for unit in @board.unitTypes
 		unit.sprite.onload = ->
 			redrawCanvas()
@@ -72,6 +72,7 @@ loadLevel = ->
 		when 0
 			console.log("Starting spawn for L0")
 			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
+			@board.units.push(new Unit(@board, 4, 4, 2, false))
 			@board.units.push(new Unit(@board, 3, 5, 1))
 			@board.units.push(new Unit(@board, 4, 5, 1))
 			@board.units.push(new Unit(@board, 5, 5, 1))
