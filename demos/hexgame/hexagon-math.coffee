@@ -137,7 +137,7 @@ class @Unit
 		@projectileY = null
 		@projectileTargetX   = null
 		@projectileTargetY   = null
-		@projectileDirection = 0
+		@attackDirection     = null
 
 	makeMove: ->
 		if @attackType=="Range" and @canShoot(@board.units[0].i, @board.units[0].j)
@@ -160,7 +160,6 @@ class @Unit
 			for cellArr in @board.cells
 				for cell in cellArr
 					if not cell.equals(iTarget, jTarget) and not cell.equals(@i, @j) and (cell.distance(iTarget, jTarget) + cell.distanceUnit(this) == distance) and cell.occupied
-						console.log(cell.i, cell.j)
 						blocked = true
 			return not blocked
 		return false
@@ -173,43 +172,32 @@ class @Unit
 		@projectileTargetX = tile.x
 		@projectileTargetY = tile.y
 
-		deltaX = @projectileX - @projectileTargetX
-		deltaY = @projectileY - @projectileTargetY
-
-		console.log(deltaX, deltaY)
-		if deltaX == 0
-			@projectileDirection = 0
-			return this
-		else if Math.sign(deltaX) == -Math.sign(deltaY)
-			@projectileDirection = 1
-			return this
-		else if deltaY == 0
-			@projectileDirection = 2
-			return this
-		else
-			@projectileDirection = 3
-			return this
+		@attackDirection = @calculateAttackDirection(@board.at(@i, @j), @board.at(iTarget, jTarget))
+		return this
 
 	move: (iTarget, jTarget) ->
+		dst = @board.at(iTarget, jTarget)
 		# Detect if the move is valid
-		if @board.at(iTarget, jTarget).occupied and @attackType!="Stab"
+		if dst.occupied and @attackType!="Stab"
 			console.log("Cannot move into that cell")
 			return this
 
 		# Detect if any units are going to be killed
 		if @attackType=="Lunge" or @attackType=="Lunge/Swipe"
-			console.log("Testing lunge")
 			for cellArr in @board.cells
 				for cell in cellArr
 					if cell.occupied and cell.distance(@i, @j)==2 and cell.distance(iTarget, jTarget)==1
 						for unit in @board.units
-							unit.kill() if (unit.i==cell.i) and (unit.j==cell.j)
+							if (unit.i==cell.i) and (unit.j==cell.j)
+								unit.kill() 
 		if @attackType=="Swipe" or @attackType=="Lunge/Swipe"
 			for cellArr in @board.cells
 				for cell in cellArr
 					if cell.occupied and cell.distance(@i, @j)==1 and cell.distance(iTarget, jTarget)==1
 						for unit in @board.units
-							unit.kill() if (unit.i==cell.i) and (unit.j==cell.j)
+							if (unit.i==cell.i) and (unit.j==cell.j)
+								damageMarkers.push(new DamagerMarker(@calculateAttackDirection(dst, cell), dst))
+								unit.kill()
 		if @attackType=="Stab"
 			if @board.at(iTarget, jTarget).occupied
 				for unit in @board.units
@@ -227,6 +215,21 @@ class @Unit
 		@targetX = @board.at(@i, @j).x + currentType.offsetX
 		@targetY = @board.at(@i, @j).y + currentType.offsetY
 		this
+
+	calculateAttackDirection: (srcTile, dstTile) ->
+		deltaX = dstTile.x - srcTile.x
+		deltaY = dstTile.y - srcTile.y
+		if deltaX == 0
+			return 0 if deltaY < 0
+			return 3
+		if Math.sign(deltaX) == -Math.sign(deltaY)
+			return 1 if deltaY < 0
+			return 4
+		if Math.sign(deltaX) == Math.sign(deltaY)
+			return 2 if deltaY > 0
+			return 5
+		console.log(deltaX, deltaY)
+		return -1
 
 	atTarget: () ->
 		return (@x == @targetX) and (@y == @targetY)
@@ -249,6 +252,7 @@ class @Unit
 			deltaY = @projectileTargetY - @projectileY
 			if deltaX==0 and deltaY==0
 				@projectileX = @projectileY = null
+				@attackDirection = null
 				@board.units[0].kill()
 				return
 			delta  = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
@@ -267,6 +271,7 @@ class @Unit
 			@board.at(@i, @j).occupied = false
 		else
 			@stunned = true
+			@stunDuration = 3
 
 class @Sprite
 	constructor: (spriteSheet, @frameWidth, @frameHeight, @nFrames) ->
@@ -281,3 +286,6 @@ class @Sprite
 		@frameNumber++
 		@frameNumber = 0 if @frameNumber >= @nFrames
 		this
+
+class @DamagerMarker
+	constructor: (@direction, @tile) ->
