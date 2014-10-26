@@ -71,7 +71,7 @@ loadLevel = ->
 	switch levelNumber
 		when 0
 			console.log("Starting spawn for L0")
-			@board.units.push(new Unit(@board, 4, 0, 0))
+			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
 			@board.units.push(new Unit(@board, 3, 5, 1))
 			@board.units.push(new Unit(@board, 4, 5, 1))
 			@board.units.push(new Unit(@board, 5, 5, 1))
@@ -80,7 +80,7 @@ loadLevel = ->
 			@board.units.push(new Unit(@board, 5, 6, 3))
 		when 1
 			console.log("Starting spawn for L1")
-			@board.units.push(new Unit(@board, 4, 0, 0))
+			@board.units.push(new Unit(@board, 4, 0, 0, true, "Lunge/Swipe"))
 			@board.units.push(new Unit(@board, 4, 4, 2, false))
 			@board.units.push(new Unit(@board, 3, 5, 1))
 			@board.units.push(new Unit(@board, 4, 5, 1))

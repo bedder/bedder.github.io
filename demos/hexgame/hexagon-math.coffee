@@ -52,10 +52,8 @@ class @Board
 					j -= (i % 2)
 			else
 				if remainderX * @aspect < remainderY
-					console.log(i, j)
 					i--
 					j += ((i + 1) % 2)
-		console.log(x, y, i, j)
 		this.at(i, j)
 
 	selectAtPels: (x, y) ->
@@ -119,7 +117,7 @@ class @UnitType
 			@altSprite.src = altSpriteLocation
 
 class @Unit
-	constructor: (@board, @i, @j, @type, @killable=true) ->
+	constructor: (@board, @i, @j, @type, @killable=true, @attackType="Stab") ->
 		@alive    = true
 		@stunned  = false
 		if @board.at(@i, @j).occupied
@@ -142,11 +140,34 @@ class @Unit
 						return @move(cell.i, cell.j)
 
 	move: (iTarget, jTarget) ->
-		if @board.at(iTarget, jTarget).occupied
-			for unit in @board.units
-				if iTarget == unit.i and jTarget == unit.j
-					unit.kill()
-			return if @board.at(iTarget, jTarget).occupied
+		# Detect if the move is valid
+		if @board.at(iTarget, jTarget).occupied and @attackType!="Stab"
+			console.log("Cannot move into that cell")
+			return this
+
+		# Detect if any units are going to be killed
+		if @attackType=="Lunge" or @attackType=="Lunge/Swipe"
+			console.log("Testing lunge")
+			for cellArr in @board.cells
+				for cell in cellArr
+					if cell.occupied and cell.distance(@i, @j)==2 and cell.distance(iTarget, jTarget)==1
+						for unit in @board.units
+							unit.kill() if (unit.i==cell.i) and (unit.j==cell.j)
+		if @attackType=="Swipe" or @attackType=="Lunge/Swipe"
+			for cellArr in @board.cells
+				for cell in cellArr
+					if cell.occupied and cell.distance(@i, @j)==1 and cell.distance(iTarget, jTarget)==1
+						for unit in @board.units
+							unit.kill() if (unit.i==cell.i) and (unit.j==cell.j)
+		if @attackType=="Stab"
+			if @board.at(iTarget, jTarget).occupied
+				for unit in @board.units
+					unit.kill() if (iTarget == unit.i) and (jTarget == unit.j)
+			# Detect stabbing kills
+		#if @attackType=="Range"
+			# Not applicable
+
+		return if @board.at(iTarget, jTarget).occupied
 		@board.at(iTarget, jTarget).occupied = true
 		@board.at(@i, @j).occupied = false
 		@i = iTarget
