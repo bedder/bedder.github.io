@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{% if page.title %}
-			{{ page.title }} - Matthew Bedder{% else %}
-			Matthew Bedder{% endif %}
+		<title>
+{% if page.title %}
+			{{ page.title }} - Matthew Bedder
+{% else %}
+			Matthew Bedder
+{% endif %}
 		</title>
 {% include meta.html %}
 {% include scripts.html %}
