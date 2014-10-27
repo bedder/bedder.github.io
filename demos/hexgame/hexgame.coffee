@@ -37,11 +37,31 @@ initialize = ->
 				unitsMove()
 			else
 				window.updateLock = false;
+
+	window.addEventListener "keypress", (event) ->
+		switch event.which
+			when 43
+				# +   : Increment level, reload
+				console.log("Skipping forward")
+				levelNumber++
+			when 45
+				# -   : Decrement level, reload
+				console.log("Skipping back")
+				levelNumber--
+			when 82, 114
+				# r, R: Do nothing
+				console.log("Reseting level")
+			else
+				return
+		loadLevel()
+		redrawCanvas()
+
 	loadLevel()
 	redrawCanvas()
 
 redrawCanvas = ->
-	@context.clearRect(0, 0, @canvas.width, @canvas.height)
+	@context.fillStyle = "rgba(0,0,0,1)"
+	@context.fillRect(0, 0, @canvas.width, @canvas.height)
 	@context.lineWidth=3;
 	@context.strokeStyle="#0000ff";
 	@board.each (cell) ->
@@ -107,8 +127,7 @@ loadLevel = ->
 	window.updateLock = true
 	delete @board
 
-	@board = new Board(9, 7, 60)
-	@board.toggle(0,0).toggle(8,0)
+	@board = new Board(10, 7, 60)
 	names = []
 	if @personified
 		@board.unitTypes.push(new UnitType("main_char_large.png", 31, 6))
