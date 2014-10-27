@@ -26,6 +26,12 @@ class @Board
 		@selected.toggle() if @selected?
 		this
 
+	toggleSet: (ijs) ->
+		for index in [0...ijs.length] by 2
+			@selected = @at(ijs[index], ijs[index+1])
+			@selected.toggle() if @selected?
+		this
+
 	toggleAtPels: (x, y) ->
 		@selected = @atPels(x, y)
 		@selected.toggle() if @selected?
@@ -61,7 +67,7 @@ class @Board
 
 class @Cell
 	constructor: (@board, @i, @j) ->
-		@enabled    = true
+		@enabled    = false
 		@x          = @i * @board.subcellWidth
 		@y          = @board.cellHeight * (2 * @j + (@i % 2)) / 2
 		@numCorners = 6
@@ -73,7 +79,7 @@ class @Cell
 		@cornersY   = [ 0, 0, @board.subcellHeight, @board.cellHeight, @board.cellHeight, @board.subcellHeight]
 		@cornersY   = for value in @cornersY
 			value + @y
-		@occupied   = false
+		@occupied   = true
 
 	toggle: ->
 		@enabled = !@enabled
@@ -161,6 +167,7 @@ class @Unit
 						if tileValue > bestValue
 							bestTile = cell
 							bestValue = tileValue
+		return null if not bestTile?
 		return @move(bestTile.i, bestTile.j)
 
 	canShoot: (iTarget, jTarget) ->
