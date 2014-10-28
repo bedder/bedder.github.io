@@ -1,6 +1,12 @@
 		<meta name="description" content="{{ page.description }}">
 		<meta name="author" content="{{ page.author }}">
 		<meta name="viewport" content="width=device-width,user-scalable=no">
+{% if page.customcss == true %}
+{% else %}
 		<link href="/css/site.css" rel="stylesheet" type="text/css">
-		<link href="/css/project-box.css" rel="stylesheet" type="text/css">{% if page.raphael %}
-		<link href="/css/raphael.css" rel="stylesheet" type="text/css">{% endif %}
+{% endif %}
+{% if page.additionalstyle %}
+<!-- ADDITIONAL STYLE START!-->
+{{ page.additionalstyle }}
+<!-- ADDITIONAL STYLE END !-->
+{% endif %}
