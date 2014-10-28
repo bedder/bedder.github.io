@@ -124,12 +124,12 @@ redrawCanvas = ->
 			@context.fillText("#{unit.name}", unit.x + 30, unit.y)
 	if @hint?
 		@context.font = "40pt sans-serif"
-		@context.textAlign = "left"
+		@context.textAlign = "right"
 		@context.fillStyle = "rgba(255, 255, 255, 0.5)"
 		lineOffset = 0
 		for hintLine in @hint
 			@context.fillText("#{hintLine}", @hintX, @hintY + lineOffset)
-			lineOffset += 40
+			lineOffset += 50
 loadLevel = ->
 	window.updateLock = true
 	delete @board
@@ -158,127 +158,141 @@ loadLevel = ->
 			redrawCanvas()
 
 	switch levelNumber
-		when -1
+		when -2
 			@board.each (cell) ->
 				cell.toggle()
 			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
 
 		when 0
-			console.log("Starting spawn for L0")
-			@board.toggleSet([4,2, 4,3, 4,4])
-			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 4, 4, 1, true, "Stab", names[1][0]))
-			@hint = ["Click to move", "towards the", "enemy"]
-			@hintX = 500
-			@hintY = 300
+			console.log("Starting spawn for L-1")
+			@board.toggleSet([2,2, 2,3])
+			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
+			@hint = ["Click on a tile", "to move there"]
+			@hintX = 920
+			@hintY = 330
 
 		when 1
-			console.log("Starting spawn for L1")
-			@board.toggleSet([4,2, 4,3, 5,2])
-			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 4, 3, 1, true, "Stab", names[1][0]))
-			@hint = ["You can also", "attack by", "strafing"]
-			@hintX = 580
-			@hintY = 290
+			console.log("Starting spawn for L0")
+			@board.toggleSet([2,2, 2,3, 2,4])
+			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 2, 4, 1, true, "Stab", names[1][0]))
+			@hint = ["Move towards an enemy", "to perform an", "attack"]
+			@hintX = 920
+			@hintY = 330
 
 		when 2
-			@board.toggleSet([3,2, 3,3, 3,4, 4,2, 4,3, 4,4, 5,1, 5,2, 5,3])
-			@board.units.push(new Unit(@board, 3, 2, 0, true, "Lunge/Swipe", names[0]))
-			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", names[1][0]))
-			@board.units.push(new Unit(@board, 4, 4, 1, true, "Stab", names[1][1]))
-			@board.units.push(new Unit(@board, 5, 1, 1, true, "Stab", names[1][2]))
-			@hint = ["Try to", "not get", "killed"]
-			@hintX = 580
-			@hintY = 290
+			console.log("Starting spawn for L1")
+			@board.toggleSet([2,2, 2,3, 3,2])
+			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 2, 3, 1, true, "Stab", names[1][0]))
+			@hint = ["Moving to strafe", "enemies also works"]
 
 		when 3
-			@board.toggleSet([4,1, 4,2, 4,3, 4,4, 4,5, 5,1, 5,2, 5,3, 5,4, 5,5])
-			@board.units.push(new Unit(@board, 4, 1, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 5, 5, 3, true, "Range", names[3][0]))
-			@hint = [types[3], "can only", "shoot", "straight"]
-			@hintX = 580
+			@board.toggleSet([1,2, 1,3, 1,4, 2,2, 2,3, 2,4, 3,1, 3,2, 3,3])
+			@board.units.push(new Unit(@board, 1, 2, 0, true, "Lunge/Swipe", names[0]))
+			@board.units.push(new Unit(@board, 1, 4, 1, true, "Stab", names[1][0]))
+			@board.units.push(new Unit(@board, 2, 4, 1, true, "Stab", names[1][1]))
+			@board.units.push(new Unit(@board, 3, 1, 1, true, "Stab", names[1][2]))
+			@hint = ["Try using", "both types", "of attacks"]
 			@hintY = 290
 
 		when 4
-			@board.toggleSet([3,2, 3,3, 4,2, 4,3, 5,1, 5,2, 5,3, 6,2, 6,3, 6,4])
-			@board.units.push(new Unit(@board, 5, 1, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 3, 3, 3, true, "Range", names[3][0]))
-			@board.units.push(new Unit(@board, 6, 4, 3, true, "Range", names[3][1]))
-			@hint = ["Think", "before", "moving..."]
-			@hintX = 660
-			@hintY = 260
+			@board.toggleSet([2,1, 2,2, 2,3, 2,4, 2,5, 3,1, 3,2, 3,3, 3,4, 3,5])
+			@board.units.push(new Unit(@board, 2, 1, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 3, 5, 3, true, "Range", names[3][0]))
+			@hint = [types[3] + " can only", "shoot in straight", "lines"]
+			@hintY = 290
 
 		when 5
-			@board.toggleSet([4,2, 4,3, 4,4, 5,2, 6,3])
-			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", names[2][0]))
-			@board.units.push(new Unit(@board, 6, 3, 2, false, "Stab", names[2][1]))
-			@hint = [types[2], "don't stay", "dead..."]
-			@hintX = 660
-			@hintY = 320
+			@board.toggleSet([2,2, 3,2, 4,2, 4,3])
+			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 4, 2, 3, true, "Range", names[3][0]))
+			@hint = [types[3] + " can't", "attack if you're", " too close"]
 
 		when 6
+			@board.toggleSet([2,2, 2,3, 2,4, 2,5, 2,6, 3,3, 3,4])
+			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 2, 5, 1, true, "Stab", names[1][0]))
+			@board.units.push(new Unit(@board, 2, 6, 3, true, "Range", names[3][0]))
+			@hint = [types[3] + " can be", "blocked by other", "enemies"]
+
+		when 7
+			@board.toggleSet([1,2, 1,3, 2,2, 2,3, 3,1, 3,2, 3,3, 4,2, 4,3, 4,4])
+			@board.units.push(new Unit(@board, 3, 1, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 1, 3, 3, true, "Range", names[3][0]))
+			@board.units.push(new Unit(@board, 4, 4, 3, true, "Range", names[3][1]))
+			@hint = ["Think before", "you move"]
+			@hintY = 260
+
+		when 8
+			@board.toggleSet([2,2, 2,3, 2,4, 3,2, 4,3])
+			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 2, 4, 2, false, "Stab", names[2][0]))
+			@board.units.push(new Unit(@board, 4, 3, 2, false, "Stab", names[2][1]))
+			@hint = [types[2] + " don't", "stay dead"]
+			@hintY = 320
+
+		when 9
 			@board.toggleSet([2,5, 3,4, 4,2, 4,3, 4,4, 5,1, 5,2, 5,3, 6,1, 7,0])
 			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
 			@board.units.push(new Unit(@board, 2, 5, 2, false, "Stab", names[2][0]))
 			@board.units.push(new Unit(@board, 6, 1, 2, false, "Stab", names[2][1]))
 			@hint = ["...only", "for three", "turns"]
-			@hintX = 580
 			@hintY = 260
 
-		when 7
-			@board.toggleSet([3,2, 3,3, 3,4, 4,3, 4,4, 5,2, 5,3, 5,4, 6,3, 6,4, 7,2, 7,3, 7,4])
-			@board.units.push(new Unit(@board, 5, 3, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 3, 2, 1, true, "Stab", names[1][0]))
-			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", names[1][1]))
-			@board.units.push(new Unit(@board, 7, 2, 1, true, "Stab", names[1][2]))
-			@board.units.push(new Unit(@board, 7, 4, 1, true, "Stab", names[1][3]))
-			@hint = (["Good luck"])
-			@hintX = 300
-			@hintY = 250
-
-		when 8
-			@board.toggleSet([3,2, 3,3, 3,4, 4,3, 4,4, 5,2, 5,3, 5,4, 6,3, 6,4, 7,2, 7,3, 7,4])
-			@board.units.push(new Unit(@board, 5, 3, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 3, 2, 3, true, "Range", names[3][0]))
-			@board.units.push(new Unit(@board, 3, 4, 3, true, "Range", names[3][1]))
-			@board.units.push(new Unit(@board, 7, 2, 3, true, "Range", names[3][2]))
-			@board.units.push(new Unit(@board, 7, 4, 3, true, "Range", names[3][3]))
-
-		when 9
-			@board.toggleSet([2,2, 2,5, 3,2, 3,3, 3,4, 4,2, 4,3, 4,4, 5,1, 5,2, 5,3, 5,4, 6,2, 6,3, 6,4, 7,2, 7,3, 7,4, 8,2, 8,5])
-			@board.units.push(new Unit(@board, 5, 3, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 2, 2, 3, true, "Range", names[3][0]))
-			@board.units.push(new Unit(@board, 2, 5, 3, true, "Range", names[3][1]))
-			@board.units.push(new Unit(@board, 8, 2, 3, true, "Range", names[3][2]))
-			@board.units.push(new Unit(@board, 8, 5, 3, true, "Range", names[3][3]))
-			@board.units.push(new Unit(@board, 3, 2, 1, true, "Stab", names[1][0]))
-			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", names[1][1]))
-			@board.units.push(new Unit(@board, 7, 2, 1, true, "Stab", names[1][2]))
-			@board.units.push(new Unit(@board, 7, 4, 1, true, "Stab", names[1][3]))
-
 		when 10
-			@board.toggleSet([3,2, 3,3, 3,4, 3,5, 4,2, 4,3, 4,4, 4,5, 5,2, 5,3, 5,4, 5,5])
-			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
-			@board.units.push(new Unit(@board, 3, 5, 3, true, "Range", names[3][0]))
-			@board.units.push(new Unit(@board, 5, 5, 3, true, "Range", names[3][1]))
-			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", names[1][0]))
-			@board.units.push(new Unit(@board, 4, 5, 1, true, "Stab", names[1][1]))
-			@board.units.push(new Unit(@board, 5, 4, 1, true, "Stab", names[1][2]))
-			@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", names[2][0]))
+			@board.toggleSet([1,2, 1,3, 1,4, 2,3, 2,4, 3,2, 3,3, 3,4, 4,3, 4,4, 5,2, 5,3, 5,4])
+			@board.units.push(new Unit(@board, 3, 3, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 1, 2, 1, true, "Stab", names[1][0]))
+			@board.units.push(new Unit(@board, 1, 4, 1, true, "Stab", names[1][1]))
+			@board.units.push(new Unit(@board, 5, 2, 1, true, "Stab", names[1][2]))
+			@board.units.push(new Unit(@board, 5, 4, 1, true, "Stab", names[1][3]))
+			@hint = (["Good luck"])
+			@hintY = 440
 
 		when 11
+			@board.toggleSet([1,2, 1,3, 1,4, 2,3, 2,4, 3,2, 3,3, 3,4, 4,3, 4,4, 5,2, 5,3, 5,4])
+			@board.units.push(new Unit(@board, 3, 3, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 1, 2, 3, true, "Range", names[3][0]))
+			@board.units.push(new Unit(@board, 1, 4, 3, true, "Range", names[3][1]))
+			@board.units.push(new Unit(@board, 5, 2, 3, true, "Range", names[3][2]))
+			@board.units.push(new Unit(@board, 5, 4, 3, true, "Range", names[3][3]))
+
+		when 12
+			@board.toggleSet([0,2, 0,5, 1,2, 1,3, 1,4, 2,2, 2,3, 2,4, 3,1, 3,2, 3,3, 3,4, 4,2, 4,3, 4,4, 5,2, 5,3, 5,4, 6,2, 6,5])
+			@board.units.push(new Unit(@board, 3, 3, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 0, 2, 3, true, "Range", names[3][0]))
+			@board.units.push(new Unit(@board, 0, 5, 3, true, "Range", names[3][1]))
+			@board.units.push(new Unit(@board, 6, 2, 3, true, "Range", names[3][2]))
+			@board.units.push(new Unit(@board, 6, 5, 3, true, "Range", names[3][3]))
+			@board.units.push(new Unit(@board, 1, 2, 1, true, "Stab", names[1][0]))
+			@board.units.push(new Unit(@board, 1, 4, 1, true, "Stab", names[1][1]))
+			@board.units.push(new Unit(@board, 5, 2, 1, true, "Stab", names[1][2]))
+			@board.units.push(new Unit(@board, 5, 4, 1, true, "Stab", names[1][3]))
+
+		when 13
+			@board.toggleSet([1,2, 1,3, 1,4, 1,5, 2,2, 2,3, 2,4, 2,5, 3,2, 3,3, 3,4, 3,5])
+			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
+			@board.units.push(new Unit(@board, 1, 5, 3, true, "Range", names[3][0]))
+			@board.units.push(new Unit(@board, 3, 5, 3, true, "Range", names[3][1]))
+			@board.units.push(new Unit(@board, 1, 4, 1, true, "Stab", names[1][0]))
+			@board.units.push(new Unit(@board, 2, 5, 1, true, "Stab", names[1][1]))
+			@board.units.push(new Unit(@board, 3, 4, 1, true, "Stab", names[1][2]))
+			@board.units.push(new Unit(@board, 2, 4, 2, false, "Stab", names[2][0]))
+
+		when 14
 			@board.toggleSet([0,3, 0,4, 1,2, 1,4, 2,2, 2,3, 2,5, 3,1, 3,2, 3,3, 3,5, 4,1, 4,2, 4,3, 4,4, 4,5, 4,6, 5,1, 5,2, 5,3, 5,5, 6,2, 6,3, 6,5, 7,2, 7,4, 8,3, 8,4])
 			@board.units.push(new Unit(@board, 4, 1, 0, true, "Lunge/Swipe", names[0][0]))
 			@board.units.push(new Unit(@board, 1, 4, 3, true, "Range", names[3][0]))
 			@board.units.push(new Unit(@board, 7, 4, 3, true, "Range", names[3][1]))
 			@board.units.push(new Unit(@board, 4, 6, 2, false, "Stab", names[2][0]))
+			@hintY = 100
+			@hint = ["A final test"]
 
 		else
 			@board.toggle(4,3)
 			@board.units.push(new Unit(@board, 4, 3, 0, true, "Lunge/Swipe", names[0][0]))
-			@hint = ["I AM ERROR"]
-			@hintX = 100
+			@hint = ["Congratulations, you beat", "          all the levels!", "", "Please get the attention", "          of Matthew."]
 			@hintY = 100
 			console.log("Trying to spawn for unknown level" + levelNumber)
 	window.inLevel = true
