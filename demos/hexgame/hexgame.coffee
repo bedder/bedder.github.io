@@ -32,8 +32,7 @@ initialize = ->
 		if window.inLevel and not window.updateLock
 			window.updateLock = true;
 			selected = board.atPels(event.offsetX, event.offsetY)
-			console.log(selected.i, selected.j)
-			if selected? and (selected.distanceUnit(board.units[0]) == 1)
+			if selected? and (selected.distanceUnit(board.units[0]) == 1) and not selected.occupied
 				board.units[0].move(selected.i, selected.j)
 				unitsMove()
 			else
@@ -144,12 +143,14 @@ loadLevel = ->
 		@board.unitTypes.push(new UnitType("heavy_knight_large.png", 26, 3, "heavy_knight_stunned_large.png"))
 		@board.unitTypes.push(new UnitType("light_archer_large.png", 20, 6))
 		names = [["Brynjar"], ["Payton", "Winfried", "Algar"], ["Godric", "Hodor"], ["Edmund", "Leofric", "Oswin"]]
+		types = ["You", "Light soldiers", "Heavy knights", "Archers"]
 	else
 		@board.unitTypes.push(new UnitType("tile_blue.png", 30, 22))
 		@board.unitTypes.push(new UnitType("tile_red.png", 30, 22))
 		@board.unitTypes.push(new UnitType("tile_red_square.png", 30, 22, "tile_red_square.png"))
 		@board.unitTypes.push(new UnitType("tile_red_star.png", 30, 22))
 		names = [["you"], ["basic", "basic", "basic"], ["heavy", "heavy"], ["ranged", "ranged", "ranged"]]
+		types = ["You", "basic units", "heavy units", "ranged units"]
 	for unit in @board.unitTypes
 		unit.sprite.onload = ->
 			redrawCanvas()
@@ -194,7 +195,7 @@ loadLevel = ->
 			@board.toggleSet([4,1, 4,2, 4,3, 4,4, 4,5, 5,1, 5,2, 5,3, 5,4, 5,5])
 			@board.units.push(new Unit(@board, 4, 1, 0, true, "Lunge/Swipe", names[0][0]))
 			@board.units.push(new Unit(@board, 5, 5, 3, true, "Range", names[3][0]))
-			@hint = ["Archers", "can only", "shoot", "straight"]
+			@hint = [types[3], "can only", "shoot", "straight"]
 			@hintX = 580
 			@hintY = 290
 
@@ -212,7 +213,7 @@ loadLevel = ->
 			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
 			@board.units.push(new Unit(@board, 4, 4, 2, false, "Stab", names[2][0]))
 			@board.units.push(new Unit(@board, 6, 3, 2, false, "Stab", names[2][1]))
-			@hint = ["Heavy", "Knights", "don't stay", "down..."]
+			@hint = [types[2], "don't stay", "dead..."]
 			@hintX = 660
 			@hintY = 320
 
