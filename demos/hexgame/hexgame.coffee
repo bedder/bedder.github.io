@@ -142,14 +142,14 @@ loadLevel = ->
 		@board.unitTypes.push(new UnitType("light_knight_large.png", 33, 6))
 		@board.unitTypes.push(new UnitType("heavy_knight_large.png", 26, 3, "heavy_knight_stunned_large.png"))
 		@board.unitTypes.push(new UnitType("light_archer_large.png", 20, 6))
-		names = [["Brynjar"], ["Payton", "Winfried", "Algar"], ["Godric", "Hodor"], ["Edmund", "Leofric", "Oswin"]]
+		names = [["Brynjar"], ["Payton", "Winfried", "Algar", "Swithin"], ["Godric", "Dudda"], ["Edmund", "Leofric", "Oswin", "Eadwig"]]
 		types = ["You", "Light soldiers", "Heavy knights", "Archers"]
 	else
 		@board.unitTypes.push(new UnitType("tile_blue.png", 30, 22))
 		@board.unitTypes.push(new UnitType("tile_red.png", 30, 22))
 		@board.unitTypes.push(new UnitType("tile_red_square.png", 30, 22, "tile_red_square.png"))
 		@board.unitTypes.push(new UnitType("tile_red_star.png", 30, 22))
-		names = [["you"], ["basic", "basic", "basic"], ["heavy", "heavy"], ["ranged", "ranged", "ranged"]]
+		names = [["you"], ["basic", "basic", "basic", "basic"], ["heavy", "heavy"], ["ranged", "ranged", "ranged", "ranged"]]
 		types = ["You", "basic units", "heavy units", "ranged units"]
 	for unit in @board.unitTypes
 		unit.sprite.onload = ->
@@ -343,7 +343,7 @@ testCompletion = ->
 				unit.stunDuration-- if unit.stunned
 				unit.stunned = false if unit.stunDuration==0
 			return
-	alert("You killed everyone. Well done?")
+	alert("Well done!")
 	@levelNumber++
 	loadLevel()
 
