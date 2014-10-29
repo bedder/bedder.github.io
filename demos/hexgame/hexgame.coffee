@@ -157,6 +157,7 @@ loadLevel = ->
 		unit.altSprite.onload = ->
 			redrawCanvas()
 
+	console.log("Starting level #{levelNumber}")
 	switch levelNumber
 		when -2
 			@board.each (cell) ->
@@ -164,7 +165,6 @@ loadLevel = ->
 			@board.units.push(new Unit(@board, 4, 2, 0, true, "Lunge/Swipe", names[0][0]))
 
 		when 0
-			console.log("Starting spawn for L-1")
 			@board.toggleSet([2,2, 2,3])
 			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
 			@hint = ["Click on a tile", "to move there"]
@@ -172,7 +172,6 @@ loadLevel = ->
 			@hintY = 330
 
 		when 1
-			console.log("Starting spawn for L0")
 			@board.toggleSet([2,2, 2,3, 2,4])
 			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
 			@board.units.push(new Unit(@board, 2, 4, 1, true, "Stab", names[1][0]))
@@ -181,7 +180,6 @@ loadLevel = ->
 			@hintY = 330
 
 		when 2
-			console.log("Starting spawn for L1")
 			@board.toggleSet([2,2, 2,3, 3,2])
 			@board.units.push(new Unit(@board, 2, 2, 0, true, "Lunge/Swipe", names[0][0]))
 			@board.units.push(new Unit(@board, 2, 3, 1, true, "Stab", names[1][0]))
@@ -334,6 +332,7 @@ unitAnimateCallback = ->
 
 testCompletion = ->
 	if not @board.units[0].alive
+		console.log("Player died.")
 		alert("You died!")
 		return loadLevel()
 	for unit in @board.units
