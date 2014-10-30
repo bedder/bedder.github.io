@@ -2,3 +2,5 @@ _site/
 Gemfile
 Gemfile.lock
 bedder.github.io.sublime-workspace
+*.sublime-workspace
+*.sublime-workspace
