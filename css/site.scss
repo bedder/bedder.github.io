@@ -169,7 +169,7 @@ h2 {
 
 
 // Resize nav bar and move content based on wrapping of navbar buttons
-@media only screen and (max-width: 614px) {
+@media only screen and (max-width: 595px) {
   #navbar {
     height: 80px;
   }
@@ -179,7 +179,7 @@ h2 {
   }
 }
 
-@media only screen and (max-width: 344px) {
+@media only screen and (max-width: 330px) {
   #navbar {
     height: 120px;
   }
