@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+{% if page.title %}
+			{{ page.title }} - Matthew Bedder
+{% else %}
+			Matthew Bedder
+{% endif %}
+		</title>
+{% include meta.html %}
+{% include scripts.html %}
+		<link href="/css/post.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+{% include header.html %}
+		</header>
+		<main>
+			<div class="layout-outer">
+				<div class="layout-inner">
+{%if page.date %}
+					<h3>{{ page.date | date_to_string}}</h3>
+{% endif %}
+{% if page.customsitetitle %}
+{% elsif page.title %}
+					<h2>{{ page.title }}</h2>
+{% endif %}
+{{ content }}
+					<br/><br/><br/>
+				</div>	
+			</div>
+		</main>
+		<footer>
+{% include footer.html %}
+		</footer>
+	</body>
+</html>
