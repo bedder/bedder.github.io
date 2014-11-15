@@ -1,8 +1,16 @@
 ---
 layout: default
 title: Posts
+additionalstyle: |
+ <link href="/css/postentry.css" rel="stylesheet" type="text/css">
 ---
-					<p>This bit is still in progress. Don't worry, it's on my to-do list.</p>
-					<ul>{% for post in site.posts %}
-						<li><a href="{{ post.url }}">[{{ post.date }}] - {{ post.title }}</a></li>{% endfor %}
+					{% for post in site.posts %}<div class="postEntry"">
+						<a href="{{ post.url }}">
+							<p class="date">{{ post.date | date: "%d %b %Y" }}</p>
+							<p class="title">{{ post.title }}</p>
+							<p class="subtitle">{{ post.subtitle }}</p>
+							<p class="description">{{ post.description }}</p>
+						</a>
+					</div>
+					{% endfor %}
 					</ul>
