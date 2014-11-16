@@ -27,6 +27,16 @@
 					<h2>{{ page.title }}</h2>
 {% endif %}
 {{ content }}
+{% if page.previous %}
+					<div class="prev">
+						<a href="{{ page.previous.url }}">&#8592; Previous post<br/>{{ page.previous.title }}</a>
+					</div>
+{% endif %}
+{% if page.next %}
+					<div class="next">
+						<a href="{{ page.next.url }}">Next post &#8594;<br/>{{ page.next.title }}</a>
+					</div>
+{% endif %}
 					<br/><br/><br/>
 				</div>	
 			</div>
