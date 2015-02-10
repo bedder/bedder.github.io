@@ -69,7 +69,7 @@ h2 {
 .layout-outer {
   width: 700px;
   text-align: left;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
 }
 
 @media only screen and (max-width: 720px) {
@@ -220,5 +220,22 @@ h2 {
       position: relative;
       width: 30%;
     }
+  }
+}
+
+#content-box {
+  background-color: #EEE;
+  padding: 10px 0 10px 0;
+  position: relative;
+  left: calc(-50vw + 50%);
+  width: 100vw;
+
+  #content {
+    text-align: center;
+  }
+
+  #caption {
+    font-size: 9pt;
+    text-align: center;
   }
 }
