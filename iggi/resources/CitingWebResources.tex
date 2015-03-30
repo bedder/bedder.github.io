@@ -1,0 +1,26 @@
+\documentclass{article}
+
+% Using filecontents to embed the .bib contents
+\usepackage{filecontents}
+\begin{filecontents}{Citations.bib}
+  @Misc{Johnson2010Playing,
+    Title = {Playing to Lose: {AI} and {Civilization}},
+    Author = {Johnson, Soren},
+    HowPublished = {Google Tech Talks},
+    Month = {aug},
+    Year = {2010},
+    Url = {http://www.youtube.com/watch?v=IJcuQQ1eWWI}
+}
+\end{filecontents}
+
+% Using biblatex with IEEE referencing style
+\usepackage[backend=bibtex, style=ieee]{biblatex}
+\addbibresource{Citations.bib}
+
+\begin{document}
+	This is an example of a reference to a web resource\cite{Johnson2010Playing}.
+
+	\vfill
+
+	\printbibliography
+\end{document}
