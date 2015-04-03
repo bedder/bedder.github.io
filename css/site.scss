@@ -34,6 +34,8 @@ h1 {
   font-weight: 700;
   line-height: 90%;
   text-decoration: none;
+  // Size
+  margin: 20px 0;
 
   a {
     // Visuals
@@ -50,6 +52,8 @@ h1 {
 }
 
 h2 {
+  // Size
+  margin: 10px 0 20px 0;
   // Visuals
   font-size: 200%;
   font-weight: 700;
@@ -59,7 +63,7 @@ h2 {
 .layout-outer {
   // Size
   width: 700px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto;
   // Visuals
   text-align: left;
 }
