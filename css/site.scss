@@ -8,16 +8,6 @@ $body-link-colour: #000000;
 $navbar-colour: #7F3300;
 $navbar-text-colour: #FFFFFF;
 
-$footer-colour: #321400;
-$footer-text-colour: #7A4623;
-
-$footer-red: #CE1836;
-$footer-orange: #F85931;
-$footer-yellow: #EDB92E;
-$footer-green: #A3A948;
-$footer-blue: #009989;
-$footer-indigo: #492D61;
-
 $font-family-stack: 'Arial', sans-serif;
 
 /*
@@ -30,8 +20,7 @@ body {
   color: $body-text-colour;
   background-color: $body-colour;
 
-  margin-left: 0pt;
-  margin-top: 0pt;
+  margin: 0pt;
 
   vertical-align: middle;
 
@@ -42,7 +31,6 @@ h1 {
   font-weight: 700;
   font-size: 400%;
   line-height: 90%;
-  padding-top: 20pt;
 
   color: $body-text-colour;
   text-decoration: none;
@@ -82,72 +70,6 @@ h2 {
   padding: 0 10pt 0 10pt;
 }
 
-#navbar {
-  position: fixed;
-  top: 0;
-  z-index: 999;
-
-  width: 100%;
-  height: 40px;
-
-  background-color: $navbar-colour;
-
-  ul {
-    position: absolute;
-    margin-top: 0px;
-    padding-left: 0px;
-    width: 100%;
-
-    li {
-      display: inline;
-      margin-right: -6px;
-
-      a#navbar-break2 {
-        display: none;
-      }
-
-      a.nav-logo {
-        width: 50px;
-        padding: 0 5px 0 10px;
-        vertical-align: middle;
-
-        display: inline-block;
-        color: $navbar-text-colour;
-        text-decoration: none;
-        font-size: 150%;
-        font-weight: 800;        
-      }
-
-      a.nav-button {
-        height: 30px;
-        width: 80px;
-        padding: 10px 5px 0 5px;
-
-        display: inline-block;
-        color: $navbar-text-colour;
-        text-decoration: none;
-        transition: 0.4s;
-      }
-
-      a.nav-button:hover {
-        border-bottom: 3px solid $navbar-text-colour;
-        height: 27px;
-      }
-    }
-  }
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-
-  width: 100%;
-  height: 30px;
-
-  background-color: $footer-colour;
-  color: #FFFFFF;
-}
-
 #social-mini {
   a {
     img {
@@ -156,38 +78,6 @@ h2 {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  #copyright {
-    width: 100%;
-    text-align: center;
-  }
-
-  #footer-social {
-    display: none;
-  }
-}
-
-
-// Resize nav bar and move content based on wrapping of navbar buttons
-@media only screen and (max-width: 595px) {
-  #navbar {
-    height: 80px;
-  }
-
-  h1 {
-    padding-top: 50pt;
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  #navbar {
-    height: 120px;
-  }
-
-  h1 {
-    padding-top: 80pt;
-  }
-}
 
 @media only screen and (max-width: 720px), only screen and (max-device-width: 480px) {
   h1 {

@@ -12,21 +12,23 @@
 {% include scripts.html %}
 	</head>
 	<body>
-		<header>
+		<div id="wrap">
+			<header>
 {% include header.html %}
-		</header>
-		<main>
-			<div class="layout-outer">
-				<div class="layout-inner">
+			</header>
+			<main>
+				<div class="layout-outer">
+					<div class="layout-inner">
 {% if page.customsitetitle %}
 {% elsif page.title %}
-					<h2>{{ page.title }}</h2>
+						<h2>{{ page.title }}</h2>
 {% endif %}
 {{ content }}
-					<br/><br/><br/>
-				</div>	
-			</div>
-		</main>
+						<br/><br/><br/>
+					</div>	
+				</div>
+			</main>
+		</div>
 		<footer>
 {% include footer.html %}
 		</footer>

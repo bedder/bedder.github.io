@@ -1,0 +1,213 @@
+---
+---
+
+$navbar-logo-font-stack: 'Abel', 'Arial', sans-serif;
+$navbar-main-font-family: 'Arial';
+
+$navbar-colour: #7F3300;
+$navbar-text-colour: #FFFFFF;
+
+$footer-colour: #321400;
+$footer-text-colour: #7A4623;
+
+/**************************************************/
+/*                                                */
+/*  CSS for www.bedder.co.uk overall design.      */
+/*  Made by Matthew Bedder, but feel free to use! */
+/*                                                */
+/**************************************************/
+
+
+/**************************************************/
+/*  Navbar and logo                               */
+/**************************************************/
+#navbar {
+  // Location
+  top: 0;
+  z-index: 999;
+
+  // Size
+  width: 100%;
+  height: 40px;
+
+  // Visuals
+  background-color: $navbar-colour;
+
+  a div.nav-logo {
+    display: inline-block;
+    width: 30px;
+    height: 100%;
+    padding: 0 10px 0 10px;
+    margin-top: 3px;
+    color: $navbar-text-colour;
+    font-family:  $navbar-logo-font-stack;
+    text-decoration: none;
+    font-size: 150%;
+    font-weight: 800;      
+  }
+
+  ul {
+  	display: inline-block;
+    position: absolute;
+    width: -moz-calc(100% - 50px);
+    width: -webkit-calc(100% - 50px);
+    width: calc(100% - 50px);
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      display: inline;
+      margin-right: -5px;
+
+      a.nav-button {
+        height: 30px;
+		width: 16.6%;
+        padding: 5px 0 5px 0;
+
+        display: inline-block;
+        color: $navbar-text-colour;
+        text-decoration: none;
+        transition: 0.4s;
+
+        .nav-button-icon {
+          padding-left: 5px;
+        	height: 32px;
+        }
+        .nav-button-text {
+        	display: inline;
+        }
+      }
+
+      a.nav-button.icon {
+      	height: 30px;
+      }
+
+      a.nav-button:hover {
+        border-bottom: 3px solid $navbar-text-colour;
+        height: 27px;
+      }
+    }
+  }
+}
+
+@media only screen
+and (max-width: 739px) {
+  #navbar {
+    height: 81px;
+    a div.nav-logo {
+      width: 60px;
+    	margin-top: 12px;
+    	font-size: 300%;
+    }
+    ul {
+      width: -moz-calc(100% - 80px);
+      width: -webkit-calc(100% - 80px);
+      width: calc(100% - 80px);
+      li a.nav-button {
+        width: 33.3%;
+      }
+    }
+  }
+}
+
+@media only screen
+and (max-width: 450px) {
+	#navbar {
+		height: 40px;
+	  a div.nav-logo {
+      width: 30px;
+	  	margin-top: 3px;
+ 		  font-size: 150%;
+	  }
+		ul {
+      width: -moz-calc(100% - 50px);
+      width: -webkit-calc(100% - 50px);
+      width: calc(100% - 50px);
+			li a.nav-button {
+				width: 52px;
+
+				div.nav-button-text {
+					display: none;
+
+				}
+        .nav-button-icon {
+            padding-left: 10px;
+        }
+			}
+		}
+	}
+}
+
+@media only screen
+and (max-width: 380px) {
+  #navbar ul li a.nav-button {
+    width: 42px;
+    .nav-button-icon {
+    padding: 0 5px;
+}
+  }
+}
+
+/**************************************************/
+/*  Footer                                        */
+/**************************************************/
+#footer {
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: $footer-colour;
+  color: #FFFFFF;
+}
+#copyright {
+  float:left;
+  padding: 6px 0 0 5px;
+}
+#social-mini {
+  float:right;
+  padding: 3px 5px 0 5px;
+}
+#social-mini-text {
+  float:right;
+  padding: 6px 0;
+}
+
+@media only screen
+and (max-width: 600px) {
+  #copyright {
+    padding: 6px 0;
+    width: 100%;
+    text-align: center;
+  }
+  #footer-social {
+    display: none;
+  }
+}
+
+/**************************************************/
+/*  "Sticky Footer" adjustments                   */
+/*     (from http://www.cssstickyfooter.com/)     */
+/**************************************************/
+html, body { 
+  height: 100%;
+}
+#wrap {
+  min-height: 100%;
+  main {
+    overflow: auto;
+    padding-bottom: 30px;
+  }
+}
+footer {
+  position: relative;
+  margin-top: -30px;
+  height: 30px;
+  clear: both;
+}
+/* Opera Fix */
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+}
