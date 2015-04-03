@@ -84,6 +84,9 @@ $footer-text-colour: #7A4623;
         .nav-button-text {
           // Location
           display: inline;
+          vertical-align: super;
+          // Visuals
+          font-size: 125%;
         }
       }
 
@@ -131,7 +134,7 @@ and (max-width: 740px) {
 }
 
 @media only screen
-and (max-width: 450px) {
+and (max-width: 475px) {
   #navbar {
     // Size
     height: 40px;
