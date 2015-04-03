@@ -1,4 +1,0 @@
-[{"name": "Start", "depends": [], "gives": ["Med kit", "LMG", "Tactical Vest"], "level": 0, "owned": true},
- {"name": "Xenobiology", "depends": ["Start"], "gives": ["Targeting Module"], "level": 1, "owned": false},
- {"name": "Alien Materials", "depends": ["Start"], "gives": ["Alloy Plating"], "level": 1, "owned": false},
- {"name": "Cyberdisk Autopsy", "depends": ["Xenobiology", "Alien Materials"], "gives": ["Autosentry"], "level": 2, "owned": false}]
