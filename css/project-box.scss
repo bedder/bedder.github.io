@@ -1,128 +1,115 @@
 ---
 ---
 
-$project-view-width: 350px;
-$project-view-height: 350px;
+$info-box-icon-size: 200px;
+$info-box-description-width: 600px;
+$info-box-background-colour: rgba(163, 133, 102, 255);
+$info-box-background-colour-a: rgba(163, 133, 102, 0);
+$info-box-border-colour: rgba(148, 112, 77, 255);
+$info-box-border-colour-a: rgba(148, 112, 77, 0);
 
-$footer-red: #CE1836;
-$footer-orange: #F85931;
-$footer-yellow: #EDB92E;
-$footer-green: #A3A948;
-$footer-blue: #009989;
-$footer-indigo: #492D61;
-
-.project-box {
-  display: inline-block;
-  position: relative;
-  height: $project-view-height;
-  width: $project-view-width;
-
-  [type=checkbox] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-
-  img {
-    height: $project-view-height;
-    width: $project-view-width;
-  }
-
-  label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .project-box {
-    height: 300px;
-    width: 300px;
-
-    img {
-      height: 300px;
-      width: 300px;
-    }
-  }  
-}
-
-
-@media only screen and (max-width: 350px) {
-  .project-box {
-    height: 250px;
-    width: 250px;
-
-    img {
-      height: 250px;
-      width: 250px;
-    }
-  }  
-}
-
-@media only screen and (max-width: 300px) {
-  .project-box {
-    height: 200px;
-    width: 200px;
-
-    img {
-      height: 200px;
-      width: 200px;
-    }
-  }  
-}
-
-
-.project-background {
-  position: absolute;  
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: green;
-  
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.project-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  
-  opacity: 0;
-  transform: translateY(100px);
-  transition: opacity 1s, transform 1s ease-in-out;
-}
-
-.project-link {
-  position: absolute;
-  bottom: 5px;
-  left: 0;
+.info-container {
   width: 100%;
   text-align: center;
-
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s, transform 1s, ease-in-out;
 }
 
-.project-box [type=checkbox]:checked ~ .project-background{
-  opacity: 0.9;
-}
- 
-.project-box [type=checkbox]:checked ~ .project-info{
-  opacity: 0.9;
-  transform: translateY(0px);
+.info-box {
+  display: inline-block;
+  padding: 0;
 }
 
-.project-box [type=checkbox]:checked ~ .project-link {
-  opacity: 0.9;
-  transform: translateY(0px);
+.info-box-icon {
+  display: inline-block;
+  width: $info-box-icon-size;
+  height: $info-box-icon-size;
+  padding: 0;
+  font-size: 800%;
+  font-family: 'Arial', sans-serif;
 }
 
+.info-box-description {
+  display: inline-block;
+  width: $info-box-description-width;
+  height: $info-box-icon-size;
+  padding: 0;
+  vertical-align: top;
+}
+
+.arrow_box {
+  height: $info-box-icon-size - 40;
+  margin: 5px 0 0 20px;
+  padding: 10px;
+  position: relative;
+  background: $info-box-background-colour;
+  border: 5px solid $info-box-border-colour;
+}
+.arrow_box:after, .arrow_box:before {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.arrow_box:after {
+  border-color: $info-box-background-colour-a;
+  border-width: 25px;
+}
+.arrow_box:before {
+  border-color: $info-box-border-colour-a;
+  border-width: 31px;
+}
+
+@media
+only screen and (min-width: 851px) {
+  .arrow-box {
+    height: 100%;
+  }
+  .arrow_box:after, .arrow_box:before {
+    right: 100%;
+    top: 50%;
+  }
+  .arrow_box:after {
+    border-right-color: $info-box-background-colour;
+    margin-top: -25px;
+  }
+  .arrow_box:before {
+    border-right-color: $info-box-border-colour;
+    margin-top: -31px;
+  }
+}
+
+@media
+only screen and (max-width: 850px) {
+  .info-box-description {
+    width: 650px;
+    height: 100%;
+  }
+  .arrow_box {
+    height: calc(100% - 20px);
+    margin: 20px 10px;
+    padding: 10px;
+    position: relative;
+    background: $info-box-background-colour;
+    border: 4px solid $info-box-border-colour;
+  }
+  .arrow_box:after, .arrow_box:before {
+    bottom: 100%;
+    left: 50%;
+  }
+  .arrow_box:after {
+    border-bottom-color: $info-box-background-colour;
+    margin-left: -25px;
+  }
+  .arrow_box:before {
+    border-bottom-color: $info-box-border-colour;
+    margin-left: -31px;
+  }
+}
+
+@media
+only screen and (max-width: 675px) {
+  .info-box-description {
+    width: 100%;
+  }
+}
