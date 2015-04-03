@@ -4,127 +4,144 @@
 $body-colour: #FFFFFF;
 $body-text-colour: #000000;
 $body-link-colour: #000000;
-
 $navbar-colour: #7F3300;
 $navbar-text-colour: #FFFFFF;
-
 $font-family-stack: 'Arial', sans-serif;
 
-/*
- * Site CSS
- */
+/**************************************************/
+/*                                                */
+/*  CSS for www.bedder.co.uk overall design.      */
+/*  Made by Matthew Bedder, but feel free to use! */
+/*                                                */
+/**************************************************/
 
 body {
+  // Position
+  vertical-align: middle;
+  // Size
+  margin: 0pt;
+  // Visuals
+  background-color: $body-colour;
+  color: $body-text-colour;
   font-family: $font-family-stack;
   font-weight: 400;
-  color: $body-text-colour;
-  background-color: $body-colour;
-
-  margin: 0pt;
-
-  vertical-align: middle;
-
-  overflow-y: scroll; // This is hacky, but adds some consistency
 }
 
 h1 {
-  font-weight: 700;
-  font-size: 400%;
-  line-height: 90%;
-
+  // Visuals
   color: $body-text-colour;
+  font-size: 400%;
+  font-weight: 700;
+  line-height: 90%;
   text-decoration: none;
 
   a {
+    // Visuals
     color: $body-link-colour;
     text-decoration: none;
   }
 
-  a:visited {
-  }
+  a:visited { }
 
   a:hover {
+    // Visuals
     text-decoration: underline;
   }
 }
 
 h2 {
-  font-weight: 700;
+  // Visuals
   font-size: 200%;
+  font-weight: 700;
   line-height: 50%;
 }
 
 .layout-outer {
+  // Size
   width: 700px;
-  text-align: left;
   margin: 0 auto 30px auto;
+  // Visuals
+  text-align: left;
 }
 
-@media only screen and (max-width: 720px) {
+@media
+only screen and (max-width: 720px) {
   .layout-outer {
+    // Size
     width: 100%;
   }
 }
 
 .layout-inner {
+  // Size
   padding: 0 10pt 0 10pt;
 }
 
 #social-mini {
   a {
     img {
+      // Position
       vertical-align: middle;
     }
   }
 }
 
 
-@media only screen and (max-width: 720px), only screen and (max-device-width: 480px) {
-  h1 {
+@media
+only screen and (max-width: 720px),
+only screen and (max-device-width: 480px) {
+  h1, #outer {
+    // Size
     width: 100%;
-  }
-
-  #outer {
-    width: 99%;
   }
 }
 
 #wide-container {
+  // Location
   display: table;
+  // Size
   height: 100%;
   width: 100%;  
 }
 
 #canvas-container {
+  // Size
   height: auto;
   width: 95%;
-
   overflow: scroll;
 }
 
 #social-large {
+  // Visuals
   text-align: center;
 
   a {
     img {
+      // Location
       position: relative;
+      // Size
       width: 30%;
     }
   }
 }
 
 #content-box {
-  background-color: #EEE;
-  padding: 10px 0 10px 0;
+  // Position
   position: relative;
   left: calc(-50vw + 50%);
+  // Size
   width: 100vw;
+  padding: 10px 0 10px 0;
+  // Visuals
+  background-color: #EEE;
 
   #content {
+    // Visuals
     text-align: center;
   }
 
   #caption {
+    // Visuals
     font-size: 9pt;
     text-align: center;
   }
