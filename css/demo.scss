@@ -1,0 +1,95 @@
+---
+---
+
+$demo-date-colour: #343434;
+$demo-link-strike: #AAAAAA;
+
+/**************************************************/
+/*                                                */
+/*  CSS for www.bedder.co.uk demo pages.          */
+/*  Made by Matthew Bedder, but feel free to use! */
+/*                                                */
+/**************************************************/
+
+/**************************************************/
+/*  Demo boxes                                    */
+/**************************************************/
+
+.demo-box {
+  img {
+    display: inline-block;
+    margin: 0 20px 0 0;
+  }
+
+  .demo-details {
+    display: inline-block;
+    height: 256px;
+    vertical-align: top;
+    width: -moz-calc(100% - 300px);
+    width: -webkit-calc(100% - 300px);
+    width: calc(100% - 300px);
+
+    .demo-details-inner {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .demo-title {
+    // Visuals
+    font-size: 150%;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  .demo-date {
+  	color: $demo-date-colour;
+  	font-size: 90%;
+    font-weight: 700;
+  }
+
+  .demo-links {
+    padding: 10px;
+  }
+
+  .demo-links li {
+    display: block;
+
+    a {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    strike {
+      font-weight: 700;
+      color: $demo-link-strike;
+    }
+  }
+}
+
+@media only screen
+and (max-width: 740px) {
+  .demo-box {
+    img {
+      width: 128px;
+      margin: 0 5px 0 0;
+    }
+
+    .demo-details {
+      height: 100%;
+      width: -moz-calc(100% - 160px);
+      width: -webkit-calc(100% - 160px);
+      width: calc(100% - 160px);
+
+      .demo-details-inner {
+        top: 0;
+        transform: translateY(0);
+      }
+    }
+
+    .demo-links {
+      padding: 0;
+    }
+  }
+}
