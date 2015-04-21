@@ -106,7 +106,7 @@ $footer-text-colour: #7A4623;
 }
 
 @media only screen
-and (max-width: 740px) {
+and (max-width: 790px) {
   #navbar {
     // Size
     height: 81px;
@@ -155,7 +155,8 @@ and (max-width: 475px) {
 
       li a.nav-button {
         // Size
-        width: 52px;
+        width: 16.66%;
+        text-align: center;
 
         div.nav-button-text {
           // Location
@@ -163,21 +164,9 @@ and (max-width: 475px) {
         }
         .nav-button-icon {
           // Size
-          padding: 0 10px;
+          padding: 0;
         }
       }
-    }
-  }
-}
-
-@media only screen
-and (max-width: 380px) {
-  #navbar ul li a.nav-button {
-    // Size
-    width: 42px;
-    .nav-button-icon {
-      // Size
-      padding: 0 5px;
     }
   }
 }
