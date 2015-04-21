@@ -57,7 +57,7 @@ h2 {
   // Visuals
   font-size: 200%;
   font-weight: 700;
-  line-height: 50%;
+  line-height: 85%;
 }
 
 .layout-outer {
@@ -148,5 +148,24 @@ only screen and (max-device-width: 480px) {
     // Visuals
     font-size: 9pt;
     text-align: center;
+  }
+}
+
+@media only screen
+and (max-width: 640px) {
+  #content-box #content #content-video {
+    width: 100%;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
   }
 }

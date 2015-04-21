@@ -3,7 +3,7 @@
 
 .postEntry {
 	margin: 0 auto 5px auto;
-	line-height: 0;
+	line-height: 120%;
 	background-color: #B37A4A;
 
 	a {
@@ -21,14 +21,14 @@
 
 	.title {
 		display: inline-block;
-		margin: 16px 0 0 5px;
+		margin: 0 5px;
 		color: #000000;
 		font-weight: 700;
 		font-size: 18pt;
 	}
 
 	.subtitle {
-		margin-left: 5px;
+		margin: 0 5px;
 		color: #333333;
 		display: inline-block;
 		font-size: 10pt;
