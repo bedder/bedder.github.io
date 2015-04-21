@@ -12,3 +12,7 @@ defaults:
     values:
       layout: "default"
       author: "Matthew Bedder"
+
+exclude:
+  - "*.psd"
+  - "*.ai"
