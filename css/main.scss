@@ -7,6 +7,8 @@ $body-link-colour: #000000;
 $navbar-colour: #7F3300;
 $navbar-text-colour: #FFFFFF;
 $font-family-stack: 'Arial', sans-serif;
+$colour-change-saturation: 40%;
+$colour-change-lightness: 60%;
 
 main {
 	padding: 45px 0;
@@ -40,7 +42,8 @@ body {
 #title-bar {
 	position: relative;
 	padding: 12px 55px;
-	background-color: red;
+  animation:colour-change 240s forwards infinite;
+  animation-delay: 0.01s;
 	color: white;
 	h1 {
 		font-size: 30pt;
@@ -53,6 +56,18 @@ body {
 		font-size: 10pt;
 		line-height: 0.75;
 	}
+}
+
+@keyframes colour-change {
+  0%{ background:hsl(0, $colour-change-saturation, $colour-change-lightness); }
+  12.5% { background:hsl(45, $colour-change-saturation, $colour-change-lightness); }
+  25% { background:hsl(90, $colour-change-saturation, $colour-change-lightness); }
+  37.5% { background:hsl(135, $colour-change-saturation, $colour-change-lightness); }
+  50% { background:hsl(180, $colour-change-saturation, $colour-change-lightness); }
+  62.5% { background:hsl(225, $colour-change-saturation, $colour-change-lightness); }
+  75% { background:hsl(270, $colour-change-saturation, $colour-change-lightness); }
+  87.5% { background:hsl(315, $colour-change-saturation, $colour-change-lightness); }
+  100% { background:hsl(360, $colour-change-saturation, $colour-change-lightness); }
 }
 
 h2 {
