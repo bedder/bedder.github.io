@@ -1,0 +1,79 @@
+---
+---
+
+$footer-colour: #C3C3C3;
+$footer-opacity: 0.75;
+$footer-text-colour: #000;
+
+
+#footer {
+  // Location
+  bottom: 0;
+  // Size
+  width: 100%;
+  height: 30px;
+  // Visuals
+  background-color: rgba($footer-colour, $footer-opacity);
+  color: $footer-text-colour;
+}
+#copyright {
+  // Location
+  float: left;
+  // Size
+  padding: 6px 0 0 5px;
+}
+#social-mini {
+  // Location
+  float: right;
+  // Size
+  padding: 3px 5px 0 5px;
+}
+#social-mini-text {
+  // Location
+  float: right;
+  // Size
+  padding: 6px 0;
+}
+
+@media only screen
+and (max-width: 600px) {
+  #copyright {
+    // Size
+    width: 100%;
+    padding: 6px 0;
+    // Visuals
+    text-align: center;
+  }
+  #footer-social {
+    // Location
+    display: none;
+  }
+}
+
+/**************************************************/
+/*  "Sticky Footer" adjustments                   */
+/*     (from http://www.cssstickyfooter.com/)     */
+/**************************************************/
+html, body { 
+  height: 100%;
+}
+#wrap {
+  min-height: 100%;
+  main {
+    overflow: auto;
+  }
+}
+footer {
+  position: relative;
+  margin-top: -30px;
+  height: 30px;
+  clear: both;
+}
+/* Opera Fix */
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+}

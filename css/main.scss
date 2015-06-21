@@ -1,0 +1,166 @@
+---
+---
+
+$body-colour: #FFFFFF;
+$body-text-colour: #000000;
+$body-link-colour: #000000;
+$navbar-colour: #7F3300;
+$navbar-text-colour: #FFFFFF;
+$font-family-stack: 'Arial', sans-serif;
+
+main {
+	padding: 45px 0;
+}
+
+body {
+	vertical-align: middle;
+	margin: 0pt;
+	background-color: $body-colour;
+	color: $body-text-colour;
+	font-family: $font-family-stack;
+	font-weight: 400;
+}
+
+.content {
+	margin: 0;
+	padding: 15px 5px;
+}
+
+.layout-outer {
+	width: 700px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.layout-inner {
+	overflow: hidden;
+	padding: 0 10pt 0 10pt;
+}
+
+#title-bar {
+	position: relative;
+	padding: 12px 55px;
+	background-color: red;
+	color: white;
+	h1 {
+		font-size: 30pt;
+		margin: 0;
+	}
+	h4 {
+		position: relative;
+		left: 2px;
+		margin: 0;
+		font-size: 10pt;
+		line-height: 0.75;
+	}
+}
+
+h2 {
+	margin: 10px 0;
+}
+
+h3 {
+	margin: 5px 0;
+}
+
+p {
+	margin: 5px 0 15px 0;
+}
+
+@media
+only screen and (max-width: 720px) {
+  .layout-outer {
+    // Size
+    width: 100%;
+  }
+}
+
+
+
+#social-mini {
+  a {
+    img {
+      // Position
+      vertical-align: middle;
+    }
+  }
+}
+
+#wide-container {
+  // Location
+  display: table;
+  // Size
+  height: 100%;
+  width: 100%;  
+}
+
+#canvas-container {
+  // Size
+  height: auto;
+  width: 95%;
+  overflow: scroll;
+}
+
+#social-large {
+  // Visuals
+  text-align: center;
+
+  a {
+    img {
+      // Location
+      position: relative;
+      // Size
+      width: 30%;
+    }
+  }
+}
+
+#content-box {
+  // Position
+  position: relative;
+  left: calc(-50vw + 50%);
+  // Size
+  width: 100vw;
+  padding: 10px 0 10px 0;
+  // Visuals
+  background-color: #EEE;
+
+  #content {
+    // Visuals
+    text-align: center;
+  }
+
+  #caption {
+    // Visuals
+    font-size: 9pt;
+    text-align: center;
+  }
+}
+
+@media only screen
+and (max-width: 640px) {
+  #content-box #content #content-video {
+    width: 100%;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+  }
+}
+
+.next, .prev {
+  display: inline-block;
+  width: 49%;
+}
+
+.next {
+  text-align: right;
+}

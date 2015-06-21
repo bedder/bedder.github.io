@@ -17,17 +17,44 @@
 {% include header.html %}
 			</header>
 			<main>
+				<div id="title-bar">
+					<div class="layout-outer">
+						<div class="layout-inner">
+{% if page.title %}
+							<h1>{{ page.title }}</h1>
+{% else %}
+							<h1>Matthew Bedder</h1>
+{% endif %}
+						</div>	
+					</div>
+				</div>
 				<div class="layout-outer">
 					<div class="layout-inner">
-{% if page.customsitetitle %}
-{% elsif page.title %}
-						<h2>{{ page.title }}</h2>
-{% endif %}
+						<div class="content">
 {{ content }}
+						</div>
 					</div>	
 				</div>
 			</main>
 		</div>
+		<script>
+			function toggleMenu() {
+				console.log("TOGGLE");
+				var mask = $('#background-mask');
+				var menu = $('#menu');
+				var side = $('#menu-sidebar');
+
+				mask.toggleClass('active');
+				menu.toggleClass('active');
+				side.toggleClass('active');
+			}
+			$("#menu-show-button").click(function() {
+				toggleMenu();
+			});
+			$("#background-mask").click(function() {
+				toggleMenu();
+			});
+		</script>
 		<footer>
 {% include footer.html %}
 		</footer>
