@@ -1,0 +1,23 @@
+[
+	{ "name" : "Microsoft Office",
+	  "percent" : 90,
+	  "description" : "...but who isn't?" },
+	{ "name" : "LaTeX",
+	  "percent" : 80,
+	  "description" : "Creating LaTeX documents is always a fun task, right up until the point where it inevitably breaks." },
+	{ "name" : "Unity",
+	  "percent" : 70,
+	  "description" : "It's a fun little engine to use. Why not click the 'games' link above and see some of the things I've made in it?" },
+	{ "name" : "Web design",
+	  "percent" : 30,
+	  "description" : "See above and below" },
+  	{ "name" : "Maya",
+	  "percent" : 28,
+	  "description" : "Want some super-simple janky models? I may be the guy for you!" },
+	{ "name" : "Baking",
+	  "percent" : 25,
+	  "description" : "Avid watcher of the Great British Baker, avid eater of cakes, avid ruiner of cake tins." },
+	{ "name" : "Basketball",
+	  "percent" : 10,
+	  "description" : "It just goes to show you, being tall doesn't instantly make you a 'baller'." }
+]

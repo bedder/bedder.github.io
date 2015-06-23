@@ -1,0 +1,35 @@
+---
+layout: about
+title: Skills
+---
+<script src="/js/wow.min.js"></script>
+<script>
+	new WOW().init();
+</script>
+<style type="text/css">
+
+</style>
+
+<p>Here's the point where I should probably mention that after studying Computer Science for over half a decade I am able to pick up new ideas and programming languages quickly. Every CS grad in the world seems to put that on their website. It always seems a bit overly defensive.</p>
+
+<p>Instead of me blathering on about my skills, here are some bars with some arbitrary scale that shows how confident I feel with some languages and technologies.</p>
+
+<h3>Languages</h3>
+<div class="loading_bars" src="languages.json"></div>
+
+<h3>Skills</h3>
+<div class="loading_bars" src="misc.json"></div>
+
+<p>Now, wasn't that useful?</p>
+
+
+<script>
+	$(".loading_bars").each(function() {
+		var tag = $(this);
+		$.getJSON($(this).attr("src"), function(data) {
+			$.each(data, function(key, val) {
+				tag.append("<div class=\"loading_bar\" title=\"" + val.description + "\"><div class=\"loading_bar_length\" style=\"width:" + val.percent + "%;\"><div class=\"loading_bar_inner wow\" style=\"background-color: hsl(" + val.percent + ", 40%, 60%);\"></div></div><div class=\"loading_bar_text\">" + val.name + "</div></div>");
+			});
+		});
+	});
+</script>

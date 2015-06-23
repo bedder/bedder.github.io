@@ -1,0 +1,83 @@
+.logos {
+	margin-top: 30px;
+}
+.logos > div {
+	width: 45%;
+	display: inline-block;
+}
+.group-logo {
+	height: 100%;
+	display: inline-block;
+	margin: 10px;
+}
+.group-logo img {
+	width: 100%;
+}
+
+@media 
+only screen and (max-width: 500px),
+only screen and (max-device-width: 480px) {
+	.profile-large, group-logo {
+		width: 100%;
+	}
+}
+
+div.loading_bars {
+	position: relative;
+	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 5px 0 20px 0;
+}
+
+div.loading_bar {
+	display: block;
+	position: relative;
+	height: 30px;
+
+	margin: 1px;
+	border-radius: 6px;
+	border: 1px solid #DDD;
+}
+
+div.loading_bar_length {
+	position: relative;
+	height: 100%;
+}
+
+div.loading_bar_inner {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	animation-name: loadin;
+	animation-duration: 1s;
+}
+
+div.loading_bar_text {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+div.profile_options {
+	display: flex;
+	margin: 10px 0;
+}
+
+div.profile_option {
+	width: 33%;
+	text-align: center;
+}
+
+div.profile_option a, div.profile_option a:link, div.profile_option a:visited {
+	color: black;
+	text-decoration: none;
+	font-size: 16pt;
+}
+
+@keyframes loadin {
+	from { width:   0%; }
+	to   { width: 100%; }
+}
