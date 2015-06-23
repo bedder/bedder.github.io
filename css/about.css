@@ -63,7 +63,7 @@ div.loading_bar_text {
 
 div.profile_options {
 	display: flex;
-	margin: 10px 0;
+	margin: 10px 0 20px 0;
 }
 
 div.profile_option {
