@@ -22,15 +22,14 @@ only screen and (max-device-width: 480px) {
 	}
 }
 
-div.loading_bars {
+.loading_bars {
 	position: relative;
 	width: 100%;
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 5px 0 20px 0;
 }
-
-div.loading_bar {
+.loading_bar {
 	display: block;
 	position: relative;
 	height: 30px;
@@ -39,13 +38,11 @@ div.loading_bar {
 	border-radius: 6px;
 	border: 1px solid #DDD;
 }
-
-div.loading_bar_length {
+.loading_bar_length {
 	position: relative;
 	height: 100%;
 }
-
-div.loading_bar_inner {
+.loading_bar_inner {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -53,25 +50,22 @@ div.loading_bar_inner {
 	animation-name: loadin;
 	animation-duration: 1s;
 }
-
-div.loading_bar_text {
+.loading_bar_text {
 	position: absolute;
 	left: 10px;
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-div.profile_options {
+.profile_options {
 	display: flex;
 	margin: 10px 0 20px 0;
 }
-
-div.profile_option {
+.profile_option {
 	width: 33%;
 	text-align: center;
 }
-
-div.profile_option a, div.profile_option a:link, div.profile_option a:visited {
+.profile_option a, .profile_option a:link, .profile_option a:visited {
 	color: black;
 	text-decoration: none;
 	font-size: 16pt;
