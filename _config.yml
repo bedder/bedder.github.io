@@ -16,3 +16,6 @@ defaults:
 exclude:
   - "*.psd"
   - "*.ai"
+
+gems:
+  - jekyll-redirect-from
