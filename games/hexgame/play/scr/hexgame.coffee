@@ -14,15 +14,15 @@ initialize = ->
 
 	#Load resources
 	@sprites.tile = new Image()
-	@sprites.tile.src = "tile_small.png"
+	@sprites.tile.src = "im/tile_small.png"
 	@sprites.tile_light = new Image()
-	@sprites.tile_light.src = "tile_small_light.png"
+	@sprites.tile_light.src = "im/tile_small_light.png"
 	@sprites.tile_red = new Image()
-	@sprites.tile_red.src = "tile_small_red.png"
+	@sprites.tile_red.src = "im/tile_small_red.png"
 	@sprites.arrow = new Image()
-	@sprites.arrow.src = "arrows.png"
+	@sprites.arrow.src = "im/arrows.png"
 	@sprites.attack = new Image()
-	@sprites.attack.src = "attack_large.png"
+	@sprites.attack.src = "im/attack_large.png"
 
 	$("#canvas").mousemove (event) ->
 		board.selectAtPels(event.offsetX, event.offsetY)
@@ -138,17 +138,17 @@ loadLevel = ->
 	@hint = null
 	names = []
 	if @personified
-		@board.unitTypes.push(new UnitType("main_char_large.png", 31, 6))
-		@board.unitTypes.push(new UnitType("light_knight_large.png", 33, 6))
-		@board.unitTypes.push(new UnitType("heavy_knight_large.png", 26, 3, "heavy_knight_stunned_large.png"))
-		@board.unitTypes.push(new UnitType("light_archer_large.png", 20, 6))
+		@board.unitTypes.push(new UnitType("im/main_char_large.png", 31, 6))
+		@board.unitTypes.push(new UnitType("im/light_knight_large.png", 33, 6))
+		@board.unitTypes.push(new UnitType("im/heavy_knight_large.png", 26, 3, "im/heavy_knight_stunned_large.png"))
+		@board.unitTypes.push(new UnitType("im/light_archer_large.png", 20, 6))
 		names = [["Brynjar"], ["Payton", "Winfried", "Algar", "Swithin"], ["Godric", "Dudda"], ["Edmund", "Leofric", "Oswin", "Eadwig"]]
 		types = ["You", "Light soldiers", "Heavy knights", "Archers"]
 	else
-		@board.unitTypes.push(new UnitType("tile_blue.png", 30, 22))
-		@board.unitTypes.push(new UnitType("tile_red.png", 30, 22))
-		@board.unitTypes.push(new UnitType("tile_red_square.png", 30, 22, "tile_red_square.png"))
-		@board.unitTypes.push(new UnitType("tile_red_star.png", 30, 22))
+		@board.unitTypes.push(new UnitType("im/tile_blue.png", 30, 22))
+		@board.unitTypes.push(new UnitType("im/tile_red.png", 30, 22))
+		@board.unitTypes.push(new UnitType("im/tile_red_square.png", 30, 22, "im/tile_red_square.png"))
+		@board.unitTypes.push(new UnitType("im/tile_red_star.png", 30, 22))
 		names = [["you"], ["basic", "basic", "basic", "basic"], ["heavy", "heavy"], ["ranged", "ranged", "ranged", "ranged"]]
 		types = ["You", "basic units", "heavy units", "ranged units"]
 	for unit in @board.unitTypes
