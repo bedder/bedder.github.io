@@ -1,0 +1,47 @@
+---
+---
+
+#social-large {
+  width: 200%;
+  font-size: 25pt;
+
+  // Per-logo adjustments
+  .fa-facebook {
+    top: 10px;
+    left: 5px;
+    font-size: 33pt;
+  }
+  .fa-twitter {
+    top: 3px;
+    left: 3px;
+  }
+  .fa-google-plus {
+    top: 4px;
+    left: 3px;
+  }
+
+  .text-small {
+    position: relative;
+    top: -5px;
+    left: -1.5px;
+    font-size: 50%;
+    letter-spacing: -1px;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+}
+
+.scroll-warning {
+  display: none;
+}
+
+
+@media 
+only screen and (max-width: 650px) {
+  .scroll-warning {
+    display: inline;
+  }
+}
