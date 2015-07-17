@@ -187,6 +187,10 @@ and (max-width: 640px) {
   -ms-transition: background-color 200ms linear;
 }
 
+#navbar .fa {
+  padding-right: 5px;
+}
+
 a.navbar-home:hover     { background-color: #FF6969; }
 a.navbar-about:hover    { background-color: #FFB074; }
 a.navbar-posts:hover    { background-color: #FADF71; }
@@ -291,7 +295,7 @@ a.navbar-contact:hover  { background-color: #DFA4E5; }
 }
 
 @media
-only screen and (max-width: 500px),
+only screen and (max-width: 615px),
 only screen and (max-device-width: 480px) {
   #navbar { width: calc(100% - 45px); }
   #navbar a.navbar-title  { display: block; }
