@@ -1,7 +1,22 @@
 ---
 layout: default
 title: Posts
+additionalstyle: |
+ <link href="/css/posts.css" rel="stylesheet" type="text/css">
 ---
-<link href="/css/posts.css" rel="stylesheet" type="text/css">
 
-<p>This is currently undergoing a bit of refactoring, and should hopefully be back soon. Sorry!</p>
+<p>(Very) occassionally I like to attempt to post about some coherent thoughts. Here are my latest attempts.</p>
+
+<p>As of 01/11/2015 there are more posts planned, finishing off post drafts spanning almost half a year. They should emerge eventually!</p>
+
+<ul id="posts">
+{% for post in site.posts %}<div class="postEntry">
+	<a href="{{ post.url }}">
+		<p class="date">{{ post.date | date: "%d %b %Y" }}</p>
+		<p class="title">{{ post.title }}</p>
+		<p class="subtitle">{{ post.subtitle }}</p>
+		<p class="description">{{ post.description }}</p>
+	</a>
+</div>
+{% endfor %}
+</ul>
