@@ -18,22 +18,18 @@
 			</header>
 			<main>
 				<div id="title-bar">
-					<div class="layout-outer">
-						<div class="layout-inner">
-{% if page.title %}
-							<h1>{{ page.title }}</h1>
-{% else %}
-							<h1>Matthew Bedder</h1>
+{%if page.date %}
+					<h4>{{ page.date | date_to_string}}</h4>
 {% endif %}
-						</div>	
-					</div>
+{% if page.title %}
+					<h1>{{ page.title }}</h1>
+{% else %}
+					<h1>Matthew Bedder</h1>
+{% endif %}
 				</div>
-				<div class="layout-outer">
-					<div class="layout-inner">
-						<div class="content">
-{{ content }}
-						</div>
-					</div>	
+				<div class="content">
+					{{ content }}
+					</div>
 				</div>
 			</main>
 		</div>
@@ -54,7 +50,6 @@
 			$("#background-mask").click(function() {
 				toggleMenu();
 			});
-			$("#title-bar")[0].style.animationDelay = -Math.random()*120 + "s";
 		</script>
 		<footer>
 {% include footer.html %}

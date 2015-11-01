@@ -19,34 +19,28 @@
 			</header>
 			<main>
 				<div id="title-bar">
-					<div class="layout-outer">
-						<div class="layout-inner">
+{%if page.date %}
+					<h4>{{ page.date | date_to_string}}</h4>
+{% endif %}
 {% if page.title %}
-							<h1>{{ page.title }}</h1>
+					<h1>{{ page.title }}</h1>
 {% else %}
-							<h1>Matthew Bedder</h1>
+					<h1>Matthew Bedder</h1>
 {% endif %}
-						</div>	
-					</div>
 				</div>
-				<div class="layout-outer">
-					<div class="layout-inner">
-						<div class="content">
+				<div class="content">
 {% if page.showmug %}
-							<center>
-								<img class="profile-large" src="{{ site.baseurl }}/resources/MattBedder-512x512.png" alt="Picture of Matthew Bedder"/>
-							</center>
+					<center>
+						<img class="profile-large" src="{{ site.baseurl }}/resources/MattBedder-512x512.png" alt="Picture of Matthew Bedder"/>
+					</center>
 {% endif %}
-							<div class="profile_options">
-								<div class="profile_option"><a href="{{ site.baseurl }}/about/">About me</a></div>
-								<div class="profile_option"><a href="{{ site.baseurl }}/about/skills">Skills</a></div>
-								<div class="profile_option"><a href="{{ site.baseurl }}/about/projects">Projects</a></div>
-							</div>
-
-
-{{ content }}
-						</div>
-					</div>	
+					<div class="profile_options">
+						<div class="profile_option"><a href="{{ site.baseurl }}/about/">About me</a></div>
+						<div class="profile_option"><a href="{{ site.baseurl }}/about/skills">Skills</a></div>
+						<div class="profile_option"><a href="{{ site.baseurl }}/about/projects">Projects</a></div>
+					</div>
+					{{ content }}
+					</div>
 				</div>
 			</main>
 		</div>
@@ -67,7 +61,6 @@
 			$("#background-mask").click(function() {
 				toggleMenu();
 			});
-			$("#title-bar")[0].style.animationDelay = -Math.random()*120 + "s";
 		</script>
 		<footer>
 {% include footer.html %}

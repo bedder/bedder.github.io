@@ -18,35 +18,29 @@
 			</header>
 			<main>
 				<div id="title-bar">
-					<div class="layout-outer">
-						<div class="layout-inner">
 {%if page.date %}
-							<h4>{{ page.date | date_to_string}}</h4>
+					<h4>{{ page.date | date_to_string}}</h4>
 {% endif %}
 {% if page.title %}
-							<h1>{{ page.title }}</h1>
+					<h1>{{ page.title }}</h1>
 {% else %}
-							<h1>Matthew Bedder</h1>
+					<h1>Matthew Bedder</h1>
 {% endif %}
-						</div>	
-					</div>
 				</div>
-				<div class="layout-outer">
-					<div class="layout-inner">
-						<div class="content">
-{{ content }}
+				<div class="content">
+					{{ content }}
+					<div id="post-nav">
 {% if page.previous %}
-							<div class="prev">
-								<a href="{{ page.previous.url }}">&#8592; Previous post<br/>{{ page.previous.title }}</a>
-							</div>
+						<div class="prev">
+							<a href="{{ page.previous.url }}">&#8592; Previous post<br/>{{ page.previous.title }}</a>
+						</div>
 {% endif %}
 {% if page.next %}
-							<div class="next">
-								<a href="{{ page.next.url }}">Next post &#8594;<br/>{{ page.next.title }}</a>
-							</div>
-{% endif %}
+						<div class="next">
+							<a href="{{ page.next.url }}">Next post &#8594;<br/>{{ page.next.title }}</a>
 						</div>
-					</div>	
+{% endif %}
+					</div>
 				</div>
 			</main>
 		</div>
