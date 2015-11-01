@@ -60,6 +60,32 @@ body {
 .content {
 	margin: 0;
 	padding: 15px 5px;
+
+  a, a:visited {
+    color: $body-link-colour;
+  }
+}
+
+.content,
+#title-bar {
+  p, ul, h1, h2, h3, h4 {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13pt;
+
+  }
+}
+@media
+only screen and (max-width: 720px) {
+  .content,
+  #title-bar {
+    p, ul, h1, h2, h3, h4 {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
 }
 
 .layout-outer {
@@ -79,6 +105,21 @@ only screen and (max-width: 720px) {
 .layout-inner {
 	overflow: hidden;
 	padding: 0 10pt 0 10pt;
+}
+
+#post-nav {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#post-nav div {
+  display: inline-block;
+  width: 49%;
+}
+
+#post-nav .next {
+  text-align: right;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -106,19 +147,26 @@ only screen and (max-width: 720px) {
   left: calc(-50vw + 50%);
   // Size
   width: 100vw;
-  padding: 10px 0 10px 0;
+  padding: 10px 0 8px 0;
+  margin-bottom: 10px;
   // Visuals
-  background-color: #EEE;
+  background-color: #DDD;
 
   #content {
     // Visuals
     text-align: center;
+
+    img {
+      max-width: calc(100% - 20px);
+    }
   }
 
   #caption {
     // Visuals
-    font-size: 9pt;
+    font-size: 10pt;
     text-align: center;
+    padding: 10px;
+    width: calc(100% - 20px)
   }
 }
 
@@ -126,18 +174,18 @@ only screen and (max-width: 720px) {
 and (max-width: 640px) {
   #content-box #content #content-video {
     width: 100%;
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      padding-top: 25px;
-      height: 0;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
 
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -178,7 +226,8 @@ and (max-width: 640px) {
   -ms-flex: 1;
   color: black;
   text-decoration: none;
-  border-right: solid 1px grey;
+  border-right: solid 1px gray;
+  border-bottom: solid 1px gray;
 }
 
 #navbar a, #navbar a:hover {
@@ -308,20 +357,22 @@ only screen and (max-device-width: 480px) {
 //////////////////////////////////////////////////////////////////////////////// 
 #title-bar {
 	position: relative;
-	padding: 12px 55px;
+	padding: 12px 0;
   animation:colour-change 240s forwards infinite;
   animation-delay: 0.01s;
 	color: white;
 	h1 {
 		font-size: 30pt;
-		margin: 0;
+		margin-top: 0;
+    margin-bottom: 0;
 	}
 	h4 {
 		position: relative;
 		left: 2px;
-		margin: 0;
+		margin-top: 0;
+    margin-bottom: 0;
 		font-size: 10pt;
-		line-height: 0.75;
+		line-height: 0.85;
 	}
 }
 

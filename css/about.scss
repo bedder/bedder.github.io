@@ -1,6 +1,8 @@
 ---
 ---
 .logos {
+	max-width: 700px;
+	margin: 0 auto;
 	margin-top: 30px;
 }
 .logos > div {
@@ -26,7 +28,7 @@ only screen and (max-device-width: 480px) {
 
 .loading_bars {
 	position: relative;
-	width: 100%;
+	max-width: 700px;
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 5px 0 20px 0;
@@ -61,7 +63,8 @@ only screen and (max-device-width: 480px) {
 
 .profile_options {
 	display: flex;
-	margin: 10px 0 20px 0;
+	max-width: 700px;
+	margin: 10px auto 20px auto;
 }
 .profile_option {
 	width: 33%;
