@@ -20,9 +20,12 @@
 	font-size: 10pt;
 }
 
-.postEntry a .title, .postEntry a .subtitle {
+.postEntry a p {
 	display: inline-block;
 	margin: 5px 0 0 5px;
+}
+
+.postEntry a .title, .postEntry a .subtitle, {
 	font-size: 15pt;
 	line-height: 1;
 }
