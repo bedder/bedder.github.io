@@ -1,17 +1,17 @@
-		<meta name="description" content="{{ page.description }}">
-		<meta name="author" content="{{ page.author }}">
-		<meta name="viewport" content="width=device-width,user-scalable=no">
-		<meta name="google-site-verification" content="y4nWZraYBJHJ_sEc0c-g8Lzj2f1Gw7r6ochKz5sR9eA" />
-{% if page.customcss == true %}
+	<head>
+		<title>
+{% if page.title %}
+			{{ page.title }} - Matthew Bedder
 {% else %}
-		<link href="/css/main.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-		<script src="/js/jquery.min.js"></script>
+			Matthew Bedder
 {% endif %}
-		<link href="/posts/feed.xml" rel="alternate" type="application/rss+xml" title="Matthew Bedder - Posts">
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300,400' rel='stylesheet' type='text/css'>
 {% if page.additionalstyle %}
 <!-- ADDITIONAL STYLE START!-->
 {{ page.additionalstyle }}
 <!-- ADDITIONAL STYLE END !-->
 {% endif %}
+	</head>
