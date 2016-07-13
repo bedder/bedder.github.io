@@ -11,7 +11,7 @@ I'm currently a PhD student at the [University of York](https://www.cs.york.ac.u
 
 Before starting my PhD I completed a Masters of Engineering in Computer Science and Artificial Intelligence at the University of York. During my degree I undertook a year in industry at BAE System's Advanced Technology Centre, and undertook an ongoing research project with members of the University of York Biology and Electronics departments in the [YCCSA Summer School](http://www.york.ac.uk/yccsa/activities/summerschool) which I am now involved in running.
 
-I was heavily involved in organising some of the 2015 and 2016 [Pint of Science](http://pintofscience.co.uk/events/york) events in York, I was on the program committee and was responsible for AV for the2015 and 2016 [York Doctoral Symposia](https://www.cs.york.ac.uk/yds), and I am a mentor to first-year Computer Science students in [Constantine College](https://www.york.ac.uk/colleges/constantine).
+I was heavily involved in organising some of the 2015 and 2016 [Pint of Science](http://pintofscience.co.uk/events/york) events in York, I was on the program committee and was responsible for AV for the 2015 and 2016 [York Doctoral Symposia](https://www.cs.york.ac.uk/yds), and I am a mentor to first-year Computer Science students in [Constantine College](https://www.york.ac.uk/colleges/constantine).
 
 <center class="logos">
 	<a href="http://www.iggi.org.uk/">

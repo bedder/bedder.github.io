@@ -32,12 +32,6 @@ $demo-link-strike: #AAAAAA;
     width: -moz-calc(100% - 300px);
     width: -webkit-calc(100% - 300px);
     width: calc(100% - 300px);
-
-    .demo-details-inner {
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-    }
   }
 
   .demo-title {
