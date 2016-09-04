@@ -1,12 +1,11 @@
 ---
 layout: default
 title: Contact me
-additionalstyle: |
- <link href="/css/contact.css" rel="stylesheet" type="text/css">
- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+css: |
+  #social-large{margin-left:auto;margin-right:auto;font-size:2rem;overflow:hidden}.scroll-warning{display:none}@media only screen and (max-width:650px){.scroll-warning{display:inline}}
 ---
 
-It's always nice to talk to new people. If you want to have a chat, why not add me on one of the popular social networks, or send me an email at [`{{ site.email }}`](mailto:{{ site.email }})?
+It's always nice to talk to new people. If you want to have a chat, why not add me on one of the popular social networks, or send me an email at [<span class="email">{{ site.email }}</span>](mailto:{{ site.email }})?
 
 (If the text is wrapping off the side of the screen, don't worry. You're not missing anything. Really, I blame the people making profile URLs really long.)
 
@@ -39,12 +38,12 @@ It's always nice to talk to new people. If you want to have a chat, why not add 
 		</a>
 	</div>
 	<div class="social-large-entry">
-		<a href="https://www.linkedin.com/pub/matthew-bedder/80/2a7/a51/" class	="fa-stack">	
+		<a href="https://www.linkedin.com/bedder/" class	="fa-stack">	
 			<i class="li-logo fa fa-circle fa-stack-2x"></i>
 			<i class="bg-logo fa fa-linkedin fa-stack-1x"></i>
 		</a>
-		<a href="https://www.linkedin.com/pub/matthew-bedder/80/2a7/a51/">
-			linkedin.com/<span class="text-small">pub</span>/matthew-bedder/<span class="text-small">80/2a7/a51/</span>
+		<a href="https://www.linkedin.com/bedder/">
+			linkedin.com/bedder
 		</a>
 	<div class="social-large-entry">
 		<a href="https://www.github.com/bedder/" class="fa-stack">

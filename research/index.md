@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Research
-additionalstyle: |
-  <link href="/css/demo.css" rel="stylesheet" type="text/css">
 ---
+
+<link rel="stylesheet" href="{{ site.baseurl }}/css/demobox.css">
 
 <br/>
 <div class="demo-box">

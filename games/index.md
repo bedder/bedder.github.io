@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Game Demos
-additionalstyle: |
-  <link href="/css/demo.css" rel="stylesheet" type="text/css">
+title: Games
 ---
+
+<link rel="stylesheet" href="{{ site.baseurl }}/css/demobox.css">
+
 <br/>
 <div class="demo-box">
 	<img src="/resources/demos/hexgame-256x256.png"/>

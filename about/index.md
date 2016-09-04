@@ -14,6 +14,7 @@ Before starting my PhD I completed a Masters of Engineering in Computer Science 
 I was heavily involved in organising some of the 2015 and 2016 [Pint of Science](http://pintofscience.co.uk/events/york) events in York, I was on the program committee and was responsible for AV for the 2015 and 2016 [York Doctoral Symposia](https://www.cs.york.ac.uk/yds), and I am a mentor to first-year Computer Science students in [Constantine College](https://www.york.ac.uk/colleges/constantine).
 
 <center class="logos">
+	<br/>
 	<a href="http://www.iggi.org.uk/">
 		<svg viewBox="-236.542 451.202 97.125 35.375" xmlns="http://www.w3.org/2000/svg" style="margin:1em 5em">
 			<title>IGGI: Your future in games research</title>
