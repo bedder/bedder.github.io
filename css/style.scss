@@ -4,7 +4,7 @@
 
 $header-colour:     #7d0404;
 $nav-colour:        #a4ad32;
-$background-colour: #fefff7;
+$background-colour: #fffffc;
 $text-colour:       #111111;
 
 $header-width: 500px;
@@ -144,13 +144,14 @@ header {
 	position: relative;
 	margin: 0;
 	max-width: 100%;
+	text-align: center;
 
 	background-color: #e8e8e8;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 
 	img, iframe {
-		width: 100%;
+		max-width: 100%;
 	}
 
 	.caption {
