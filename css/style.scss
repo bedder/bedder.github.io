@@ -233,7 +233,13 @@ and (max-width: 640px) {
 }
 
 @media only screen
-and (-webkit-min-device-pixel-ratio: 2) {
+and (-webkit-min-device-pixel-ratio: 2),
+ony screen and (min-resolution: 192dpi) {
+	#site-content > *,
+	#site-content > .lightbox .content,
+	#site-content > .lightbox .caption {
+		max-width: 1200px;
+	}
 	header {
 		padding-top: 20px;
 	}
