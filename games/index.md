@@ -89,9 +89,6 @@ title: Games
 				I'm <i>hoping</i> to be able to release the code and models of this game soon-ish, but I need to find some time to tidy up the code first!
 			</div>
 			<ul class="demo-links">
-				<li><strike>Details</strike> (Coming soon!)</li>
-				<li><strike>Playable version</strike> (Coming soon!)</li>
-				<li><strike>Git Repository</strike> (Coming soon!)</li>
 			</ul>
 		</div>
 	</div>
