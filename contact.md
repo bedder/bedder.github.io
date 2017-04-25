@@ -38,11 +38,11 @@ It's always nice to talk to new people. If you want to have a chat, why not add 
 		</a>
 	</div>
 	<div class="social-large-entry">
-		<a href="https://www.linkedin.com/bedder/" class	="fa-stack">	
+		<a href="https://www.linkedin.com/in/bedder/" class	="fa-stack">	
 			<i class="li-logo fa fa-circle fa-stack-2x"></i>
 			<i class="bg-logo fa fa-linkedin fa-stack-1x"></i>
 		</a>
-		<a href="https://www.linkedin.com/bedder/">
+		<a href="https://www.linkedin.com/in/bedder/">
 			linkedin.com/bedder
 		</a>
 	</div>
