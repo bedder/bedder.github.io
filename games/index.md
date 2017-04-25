@@ -3,7 +3,7 @@ layout: default
 title: Games
 ---
 
-<link rel="stylesheet" href="{{ site.baseurl }}/css/demobox.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/css/demobox.css"/>
 
 <br/>
 <div class="demo-box">

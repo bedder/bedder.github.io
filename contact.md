@@ -45,6 +45,7 @@ It's always nice to talk to new people. If you want to have a chat, why not add 
 		<a href="https://www.linkedin.com/bedder/">
 			linkedin.com/bedder
 		</a>
+	</div>
 	<div class="social-large-entry">
 		<a href="https://www.github.com/bedder/" class="fa-stack">
 			<i class="gh-logo fa fa-circle fa-stack-2x"></i>
