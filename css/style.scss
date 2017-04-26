@@ -6,7 +6,7 @@ $header-colour:     #7d0404;
 $nav-colour:        #111111;
 $background-colour: #fffffc;
 $text-colour:       #111111;
-$copyright-color:   #b58900;
+$footer-colour:     #b9b9b9;
 
 
 $header-width: 500px;
@@ -35,7 +35,7 @@ footer, .push {
 	height: 3em;
 }
 footer {
-	background-color: $header-colour;
+	background-color: $footer-colour;
 	line-height: 3em;
 	font-size: 1rem;
 	padding: 0 20px;
@@ -46,8 +46,6 @@ footer {
 		right: 0;
 		text-align: center;
 		font-family: 'Cantarell', sans-serif;
-		font-weight: 700;
-		color: $copyright-color;
 	}
 	.social-small {
 		display: inline-block;
@@ -64,9 +62,10 @@ footer {
 header {
 	width: 100%;
 	#site-hdr-ttl-bar {
-		padding: 2em 0 2em 0;
+		padding: 2em 0;
 		background-color: $header-colour;
 		#site-hdr-ttl {
+			padding: 1.5em 0;
 			background-color: $background-colour;
 			border-radius: 1px;
 			max-width: $header-width;
@@ -79,12 +78,10 @@ header {
 			.site-hdr-ttl-txt {
 				font-weight: 700;
 				font-size: 3rem;
-	    		padding: 0.5em 0 0.2em 0;
 			}
 			.site-hdr-auth-txt {
 				font-weight: 400;
-				font-size: 18pt;
-				padding-bottom: 1em;
+				font-size: 1.3rem;
 			}
 			#site-hdr-ttl-lng, #site-hdr-auth-lng {
 				display: block;
@@ -105,7 +102,7 @@ header {
 				a {
 					font-family: 'Cantarell', sans-serif;
 					font-weight: 700;
-					font-size: 1.1rem;
+					font-size: 1.3rem;
 					color: $nav-colour;
 					text-decoration: none;
 					text-transform: uppercase;
@@ -128,10 +125,14 @@ header {
 
 #site-content {
 	display: block;
-	padding: 1em 0;
+	padding: 0;
 	font-family: 'Open Sans', sans-serif;
 	h1, h2, h3, h4 {
 		font-family: 'Cantarell', sans-serif;
+	}
+	h1 {
+		font-size: 3rem;
+		margin: 0 auto;
 	}
 	p {
 		text-align: justify;
@@ -162,7 +163,6 @@ header {
 	.caption {
 		text-align: center;
 		padding-top: 0.5em;
-		font-size: 12pt;
 	}
 
 	.content, .caption {
@@ -270,20 +270,21 @@ and (max-width: 640px) {
 	}
 }
 
-@media only screen
-and (-webkit-min-device-pixel-ratio: 2),
-ony screen and (min-resolution: 192dpi) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi) {
 	#site-content > *,
 	#site-content > .lightbox .content,
 	#site-content > .lightbox .caption {
 		max-width: 1200px;
 	}
-	header {
-		padding-top: 20px;
+	header #site-hdr-ttl-bar #site-hdr-ttl {
+		max-width: 600px;
 	}
-	header #site-hdr-ttl, #site-content {
+	#site-content {
 		max-width: 1200px;
-		margin: 0 20px;
+		h1, h2, h3, .date, p {
+			padding: 0 1.5rem;
+		}
 	}
 	header #site-hdr-ttl .site-hdr-ttl-txt {
 		font-size: 6rem;
@@ -298,7 +299,6 @@ ony screen and (min-resolution: 192dpi) {
 		height: 4em;
 	}
 	footer {
-		background-color: $header-colour;
 		line-height: 4em;
 		.copyright {
 			font-size: 1.5rem;

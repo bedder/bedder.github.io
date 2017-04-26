@@ -3,6 +3,8 @@ layout: default
 title: Hello, world!
 ---
 
+<br/>
+
 Hello, and welcome to the personal webpage of Matthew Bedder. Why not have a look around?
 
 If you'd like to know a bit more about me, [then there's a page for that]({{ site.baseurl }}/about/).

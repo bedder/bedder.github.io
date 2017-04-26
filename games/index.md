@@ -5,6 +5,8 @@ title: Games
 
 <link rel="stylesheet" href="{{ site.baseurl }}/css/demobox.css"/>
 
+# GAMES
+
 <br/>
 <div class="demo-box">
 	<img src="/resources/demos/hexgame-256x256.png"/>

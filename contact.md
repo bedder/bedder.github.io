@@ -5,6 +5,8 @@ css: |
   #social-large{margin-left:auto;margin-right:auto;font-size:2rem;overflow:hidden}.scroll-warning{display:none}@media only screen and (max-width:650px){.scroll-warning{display:inline}}@media only screen and (-webkit-min-device-pixel-ratio:2),ony screen and (min-resolution:192dpi){#social-large{font-size:4rem}}
 ---
 
+# CONTACT
+
 It's always nice to talk to new people. If you want to have a chat, why not add me on one of the popular social networks, or send me an email at [<span class="email">{{ site.email }}</span>](mailto:{{ site.email }})?
 
 (If the text is wrapping off the side of the screen, don't worry. You're not missing anything. Really, I blame the people making profile URLs really long.)

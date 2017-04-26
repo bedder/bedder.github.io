@@ -5,6 +5,8 @@ title: Research
 
 <link rel="stylesheet" href="{{ site.baseurl }}/css/demobox.css"/>
 
+# RESEARCH
+
 <br/>
 <div class="demo-box">
 	<img src="/resources/research/hmcts-256x256.png" style="opacity:0.1;border:1px solid black;border-radius:50%;"/>
