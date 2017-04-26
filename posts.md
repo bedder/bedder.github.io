@@ -7,9 +7,7 @@ css: |
 
 # POSTS
 
-(Very) occassionally I like to attempt to post about some coherent thoughts. Here are my latest attempts
-
-As of 07/2016 there are more posts planned, finishing off post drafts spanning almost half a year. They should emerge eventually!
+I don't really write anything here, but here's an archive of some of the things I've written in the past.
 
 <ul id="posts">
 {% for post in site.posts %}<div class="postEntry">
