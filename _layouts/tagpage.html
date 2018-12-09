@@ -1,0 +1,12 @@
+---
+layout: basic
+---
+
+<!-- LAYOUT TAGPAGE -->
+<h2>Posts containing the tag: {{ page.tag }}</h2>
+
+<ul id="posts">
+{% for post in site.tags[page.tag] %}<div class="postEntry">
+	<span class="date">{{ post.date | date: "%d %b %Y" }}</span> - <a href="{{ post.url }}"><span class="title">{{ post.title }}</span></a>
+</div>
+{% endfor %}

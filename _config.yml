@@ -13,12 +13,14 @@ defaults:
       layout: "default"
       author: "Matthew Bedder"
 
-exclude:
-  - "*.psd"
-  - "*.ai"
-
-gems:
+plugins:
   - jekyll-redirect-from
+  - jekyll-paginate
 
 sass:
   style: compressed
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+exclude: ["README.md", "CNAME"]

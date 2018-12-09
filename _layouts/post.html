@@ -1,40 +1,16 @@
-<!DOCTYPE html>
-<html>
-{% include head.html %}
-  <body>
-    <div class="wrapper">
-{% include header.html %}
-      <div id="site-content">
-		<link rel="stylesheet" href="{{ site.baseurl }}/css/post.css">
-      	<h1>
-      		{{ page.title }}
-      	</h1>
-      	<div class="date">
-{% assign d = page.date | date: "%A %-d" %} 
-{% case d %}
-  {% when '1' or '21' or '31' %}{{ d }}st
-  {% when '2' or '22' %}{{ d }}nd
-  {% when '3' or '23' %}{{ d }}rd
-  {% else %}{{ d }}th
-{% endcase %}
-{{ page.date | date: "of %B, %Y" }}
-      	</div>
-{{ content }}
-        <div id="post-nav">
-{% if page.previous %}
-          <div class="prev">
-            <a href="{{ page.previous.url }}">&#8592; Previous post<br/>{{ page.previous.title }}</a>
-          </div>
+---
+layout: basic
+---
+
+<!-- LAYOUT POST -->
+<article>
+{% if page.notitle %}
+{% else %}
+	<h1><a href="{{ post.url }}">{{ page.title }}</a></h1>
 {% endif %}
-{% if page.next %}
-          <div class="next">
-            <a href="{{ page.next.url }}">Next post &#8594;<br/>{{ page.next.title }}</a>
-          </div>
+	<div class="date"><a href="{{ post.url }}">{{ page.date | date: "%d %b %Y" }}</a></div>
+	{{ page.content }}
+{% if page.tags %}
+	<div class="meta meta-tags"><b>Tags:</b> [{% for tag in page.tags %}{% capture tag_name %}{{ tag }}{% endcapture %}<a href="/tag/{{ tag_name }}">{{ tag_name }}</a>{% endfor %}]</div>
 {% endif %}
-        </div> <!-- post-nav -->
-      </div> <!-- site-content -->
-      <div class="push"></div>
-    </div> <!-- wrapper -->
-{% include footer.html %}
-  </body>
-</html>
+</article>
