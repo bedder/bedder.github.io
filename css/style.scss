@@ -49,6 +49,7 @@ nav {
 		font-size: 25px;
 		display: block;
 		text-transform: uppercase;
+		color: $sidebar-links;
 
 		li {
 			margin: 5px 0;
@@ -78,6 +79,8 @@ nav {
 	margin-left: 305px;
 	max-width: 600px;
 }
+
+
 
 h1, h2, h3 {
 	font-family: "Bitter", serif;
@@ -202,5 +205,35 @@ pre {
 	}
 	.python {
 		tab-size: 4;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	body {
+		margin: 0;
+	}
+	nav {
+		display: inline-block;
+		width: 100%;
+		height: auto;
+		position: relative;
+		text-align: center;
+		#nav-links li {
+			display: inline;
+		}
+		#nav-links li:not(:first-child):before {
+			content: " | ";
+		}
+		#social-links {
+			display: none;
+		}
+	}
+	#content {
+		display: inline-block;
+		margin: 1rem;;
+	}
+	h1 {
+		font-size: 40px;
+		margin-top: 5px;;
 	}
 }
